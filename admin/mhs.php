@@ -41,7 +41,7 @@
                                             echo '<span class="badge badge-info">Admin</span>';
                                         } else {
                                             ?>
-                                            <a onclick="return confirm ('Yakin hapus <?php echo $d['nama'];?> ?');" href="hapusmhs.php?id=<?php echo $d['id']; ?>"><span class="badge badge-danger">HAPUS</span> </a>
+                                            <a onclick="return confirm ('Yakin hapus <?php echo $d['nama'];?> ?');" href="hapusmhs.php?id=<?php echo $d['Id']; ?>"><span class="badge badge-danger">HAPUS</span> </a>
                                           <?php
                                         }
             ?>

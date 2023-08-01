@@ -47,8 +47,8 @@
                                                 <td><?php echo $d['tanggal']; ?></td>
                                                 <td><?php echo $d['status']; ?></td>
                                                 <td>
-                <a  href="edit.php?id=<?php echo $d['id']; ?>"><span class="badge badge-warning">EDIT</span> </a>  
-                <a href="print.php?id=<?php echo $d['id']; ?>"><span class="badge badge-info">PRINT</span> </a>
+                <a href="edit.php?id=<?php echo $d['id']; ?>"><span class="badge badge-warning">EDIT</span> </a>  
+                <!-- <a href="print.php?id=<?php echo $d['id']; ?>"><span class="badge badge-info">PRINT</span> </a> -->
                  <a onclick="return confirm ('Yakin hapus <?php echo $d['Nama'];?> ?');" href="hapus.php?id=<?php echo $d['id']; ?>"><span class="badge badge-danger">HAPUS</span> </a>
                                            </td>
                                             </tr>

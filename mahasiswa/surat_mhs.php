@@ -39,7 +39,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label for="nama">Kode Dosen</label>
-                                    <input type="text" class="form-control" id="nim" value="<?= $_SESSION['nama']; ?>" name="nim" readonly required>
+                                    <input type="text" class="form-control" id="nim" value="<?= $_SESSION['username']; ?>" name="nim" readonly required>
                                   </div>
                                   <div class="form-group">
                                     <label for="exampleFormControlFile1">Upload Berkas Penelitian</label>
