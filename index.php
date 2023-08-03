@@ -12,16 +12,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <?php
-
-    if (isset($_SESSION['level'])) {
-        if ($_SESSION['level'] == "admin") {
-            header('location:admin/');
-        } else if ($_SESSION['level'] == "dosen") {
-            header('location:dosen/');
-        }  else if ($_SESSION['level'] == "lppm") {
-            header('location:lppm/');
+        if (isset($_SESSION['level'])) {
+            if ($_SESSION['level'] == "admin") {
+                header('location:admin/index.php');
+            } else if ($_SESSION['level'] == "dosen") {
+                header('location:dosen/index.php');
+            }  else if ($_SESSION['level'] == "lppm") {
+                header('location:lppm/index.php');
+            }
         }
-    }
+
 
 
 ?>

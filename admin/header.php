@@ -66,6 +66,10 @@
                                 ><div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                                 Penelitian</a
                             >
+                            <a class="nav-link" href="cek_pengmas.php"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                Data Pengmas</a
+                            >
                            <a class="nav-link" href="mhs.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Data User</a

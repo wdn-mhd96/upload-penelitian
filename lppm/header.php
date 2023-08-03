@@ -62,9 +62,14 @@
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard</a
                             >
+                            
                             <a class="nav-link" href="suratlpm.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                                 Cek Penelitian</a
+                            >
+                            <a class="nav-link" href="cek_pengmas.php"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                Data Pengmas</a
                             >
                           
                             

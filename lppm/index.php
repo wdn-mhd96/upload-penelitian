@@ -1,4 +1,3 @@
-<?php include 'header.php'?>
 <?php
 include_once "header.php";
 include '../../koneksi/koneksi.php';

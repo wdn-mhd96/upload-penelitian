@@ -67,8 +67,8 @@ if ($_SESSION['level'] != "dosen") {
                             <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
                             Cek Penelitian
                         </a>
-                        <a class="nav-link" href="pengmas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        <a class="nav-link" href="cek_pengmas.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
                             Pengabdian Masyarakat
                         </a>
                     </div>

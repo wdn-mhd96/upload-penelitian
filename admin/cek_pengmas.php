@@ -1,8 +1,20 @@
-<?php
-include_once 'header.php'; ?>
-<div id="layoutSidenav_content">
-<main>
-<table id="example" class="table table-border" style="width:100%">
+<?php include_once "header.php"; ?>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Data Pengabdian Masyarakat</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Upload Pengabdian masyarakat</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Edit jadi apa aja
+                                </p>
+                            </div>
+                        </div>
+<table id="pengmas" class="table table-border" style="width:100%">
     <thead class="table table-dark">
         <tr>
             <th>No</th>
@@ -11,12 +23,14 @@ include_once 'header.php'; ?>
             <th>File</th>
             <th>Tanggal</th>
             <th>Status</th>
+            <th>Catatan</th>
             <th>action</th>
         </tr>
     </thead>
 </table>
 
-
+</div>
+</main>
 <!-- import jquery -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!-- import jquery datatable -->
@@ -25,10 +39,10 @@ include_once 'header.php'; ?>
 <!-- script javascript untuk datatable -->
 <script>
 $(document).ready(function() {
-    $('#example').DataTable( {
+    $('#pengmas').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "data.php",
+        "ajax": "data_pengmas.php",
         "order": [[ 0, 'asc' ]],
 
         // membuat kolom
@@ -45,10 +59,12 @@ $(document).ready(function() {
             { "data": 'file' },
             { "data": 'tanggal' },
             { "data": 'status' },
+            { "data": 'catatan' },
             { "data": 'aksi' },
         ]
     } );
 } );
 </script>
-</main>
-<?php include_once 'footer.php'; ?>
+                    
+
+                <?php include_once "footer.php"; ?>
