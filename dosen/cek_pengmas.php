@@ -14,7 +14,6 @@
       $sql = "SELECT * from tpengmas left JOIN user on tpengmas.nim = user.username where nim='$gg'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
-      if (mysqli_num_rows($query) > 0) {
       ?>
         <div class="card mb-4">
           <div class="card text-center">
@@ -68,12 +67,7 @@
                 <?php } ?>
               </table>
 
-            <?php
-
-          } else {
-            echo '<center><h3><span class="badge badge-warning"> Maaf, anda belum menginputkan berkas apapun. </span></h3></center>';
-          }
-            ?>
+        
             </div>
           </div>
         </div>
