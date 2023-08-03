@@ -60,7 +60,8 @@ $(document).ready(function() {
             { "data": 'tanggal' },
             { "data": 'status' },
             { "data": 'catatan' },
-            { "data": 'aksi' },
+            { "data": 'aksi'},
+            
         ]
     } );
 } );

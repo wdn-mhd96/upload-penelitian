@@ -1,23 +1,17 @@
 <?php
-	session_start();
-
-	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['level'] != "lppm")
-                        {
-                            if($_SESSION['level'] == 'dosen')
-                            {
-                                header('location:../dosen/index.php');
-                            }
-                            else if($_SESSION['level'] == 'admin')
-                            {
-                                header('location:../admin/index.php');
-                            }
-                            else
-                            {
-                                header('location:../index.php');
-                            }
-                        }
-                        ?>
+session_start();
+// cek apakah yang mengakses halaman ini sudah login
+if ($_SESSION['level'] != "lppm") {
+    if ($_SESSION['level'] == 'admin') {
+        header('location:../admin/index.php');
+    } 
+    else if ($_SESSION['level'] == 'dosen') {
+        header('location:../dosen/index.php');
+    } else {
+        header('location:../index.php');
+    }
+}
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

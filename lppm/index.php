@@ -1,9 +1,6 @@
-
 <?php
-include_once "header.php";
+include "header.php";
 include '../../koneksi/koneksi.php';
-
-
 // ambil data 
 $total = mysqli_query($koneksi, "SELECT * FROM user WHERE level = 'dosen'");
 
