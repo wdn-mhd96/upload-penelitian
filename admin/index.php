@@ -28,7 +28,7 @@ $jumlah = mysqli_num_rows($total);
                         <div class="card-body"><b>Pengumuman</b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <p>
-                                halo, aku adalah pengumuman! edit aku ya :)
+                                Kepada seluruh Dosen dan peneliti, Bagi yang telah menyelesaikan penelitian dan siap untuk membagikannya, Aplikasi ini merupakan fasilitas pengunggahan yang mudah dan aman.
                             </p>
                         </div>
                     </div>

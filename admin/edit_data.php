@@ -26,6 +26,7 @@ $a = mysqli_query($koneksi, "UPDATE surat_mhs SET judul='$nama', nim='$nim', sta
 }
 
 
+
 //edit data pengmas
 if(isset($_POST['update_pengmas']))
 {
@@ -45,6 +46,7 @@ $a = mysqli_query($koneksi, "UPDATE tpengmas SET judul_pengmas='$nama', nim='$ni
         {
             echo "<script>alert('gagal'); window.location = 'cek_pengmas.php';</script>";
             
-        }
+       }
 // mengalihkan halaman kembali ke index.php
 }
+
