@@ -2,10 +2,22 @@
 	session_start();
 
 	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['level']==""){
-		header("location:index.php?pesan=gagal");
-	}
-?>
+	if($_SESSION['level'] != "admin")
+                        {
+                            if($_SESSION['level'] == 'dosen')
+                            {
+                                header('location:../dosen/index.php');
+                            }
+                            else if($_SESSION['level'] == 'lppm')
+                            {
+                                header('location:../lppm/index.php');
+                            }
+                            else
+                            {
+                                header('location:../index.php');
+                            }
+                        }
+                        ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -60,6 +72,7 @@
                             >
                         </div>
                     </div>
+                    
                     <div class="sb-sidenav-footer">
                         <div class="small">Masuk Sebagai :</div>
                         <?php echo $_SESSION['level']; ?>

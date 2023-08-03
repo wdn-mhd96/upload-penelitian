@@ -14,53 +14,57 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="card mb-4">
-                            <div class="card-header"><i class="fas fa-table mr-1"></i>Data Penelitian</div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Judul Penelitian</th>
-                                                <th>Nama Dosen</th>
-                                                <th>Lampiran</th>
-                                               <!--  <th>KRS</th> -->
-                                                <th>Tanggal</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <?php 
-		include '../koneksi.php';
-		$no = 1;
-		$data = mysqli_query($koneksi,"select * from surat_mhs");
-		while($d = mysqli_fetch_array($data)){
-			?>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $no++; ?></td>
-                                                <td><?php echo $d['Nama']; ?></td>
-                                                <td><?php echo $d['nim']; ?></td>
-                                                <td><?php echo $d['file']; ?></td>
-                                                <!-- <td><?php echo $d['krs']; ?></td> -->
-                                                <td><?php echo $d['tanggal']; ?></td>
-                                                <td><?php echo $d['status']; ?></td>
-                                                <td>
-                <a href="edit.php?id=<?php echo $d['id']; ?>"><span class="badge badge-warning">EDIT</span> </a>  
-                <!-- <a href="print.php?id=<?php echo $d['id']; ?>"><span class="badge badge-info">PRINT</span> </a> -->
-                 <a onclick="return confirm ('Yakin hapus <?php echo $d['Nama'];?> ?');" href="hapus.php?id=<?php echo $d['id']; ?>"><span class="badge badge-danger">HAPUS</span> </a>
-                                           </td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                        <?php 
-		}
-		?>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
+<table id="example" class="table table-border" style="width:100%">
+    <thead class="table table-dark">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Judul</th>
+            <th>File</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th>Catatan</th>
+            <th>action</th>
+        </tr>
+    </thead>
+</table>
+
+</div>
+</main>
+<!-- import jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- import jquery datatable -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+<!-- script javascript untuk datatable -->
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "data.php",
+        "order": [[ 0, 'asc' ]],
+
+        // membuat kolom
+        "columns": [
+
+            //untuk membuat data index
+            { data: 'no', name:'id', render: function (data, type, row, meta) {
+                  return meta.row + meta.settings._iDisplayStart + 1;
+              }},
+
+              //samakan data kolom sesuai dt di data.php
+            { "data": 'nama' },
+            { "data": 'judul' },
+            { "data": 'file' },
+            { "data": 'tanggal' },
+            { "data": 'status' },
+            { "data": 'krs' },
+            { "data": 'aksi' },
+        ]
+    } );
+} );
+</script>
+                    
+
                 <?php include_once "footer.php"; ?>

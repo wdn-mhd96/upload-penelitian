@@ -24,7 +24,14 @@
                                     <label for="pass">Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="pass" name="pass" required>
                                   </div>
-                                  <hr>
+                                  <!-- <div class="form-group">
+                                    <label for="pass">Level</label>
+                                   <select name="level" id="" class="form-control">
+                                    <option value="admin">Admin</option>
+                                    <option value="lppm">LPPM</option>
+                                    <option value="dosen">Dosen</option>
+                                   </select></div>
+                                  <hr> -->
                                   <input type="submit" class="btn btn-primary" name="upload" value="Kirim">
                                 </form>
                                 </div>

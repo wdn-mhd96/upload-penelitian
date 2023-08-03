@@ -1,14 +1,17 @@
 <?php
 include_once "header.php";
-include '../koneksi.php';
+include '../../koneksi/koneksi.php';
+
+
 // ambil data 
-$total = mysqli_query($koneksi, "SELECT * FROM user WHERE level='mahasiswa'");
+$total = mysqli_query($koneksi, "SELECT * FROM user WHERE level in('dosen','lppm')");
 
 // menghitung data 
 $jumlah = mysqli_num_rows($total);
 ?>
 
 <div id="layoutSidenav_content">
+
     <main>
         <div class="container-fluid">
             <h1 class="mt-4">Dashboard</h1>
@@ -16,7 +19,7 @@ $jumlah = mysqli_num_rows($total);
                 <li class="breadcrumb-item active">Halo <b><?php echo $_SESSION['username']; ?></b>
                     <br>
                     <hr>
-                    Total Mahasiswa : <?php echo $jumlah; ?> Orang
+                    Total Dosen : <?php echo $jumlah; ?> Orang
                 </li>
             </ol>
             <div class="row">
@@ -25,7 +28,7 @@ $jumlah = mysqli_num_rows($total);
                         <div class="card-body"><b>Pengumuman</b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <p>
-                                halo, aku adalah pengumuman! edit aku ya :)
+                                Kepada seluruh Dosen dan peneliti, Bagi yang telah menyelesaikan penelitian dan siap untuk membagikannya, Aplikasi ini merupakan fasilitas pengunggahan yang mudah dan aman.
                             </p>
                         </div>
                     </div>
