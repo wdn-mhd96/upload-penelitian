@@ -1,6 +1,6 @@
 <?php
 require('fpdf/fpdf.php');
-include "../koneksi.php";
+include "../../koneksi/koneksi.php";
 #ambil data di tabel   
 
 if($_GET['id']){
@@ -99,4 +99,3 @@ $pdf->Cell(19,0.5,'No. Reg 1031230514008',0,0,'R');
 //Menjadikan dalam bentuk PDF
 $pdf->Output('surat.pdf','I');
 } else echo "NIM harus terisi";
-?>
