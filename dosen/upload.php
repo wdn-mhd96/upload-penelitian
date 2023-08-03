@@ -4,6 +4,8 @@ error_reporting(0);
 include '../../koneksi/koneksi.php';
 if (isset($_POST['upload'])) {
 
+
+   
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Sudah Diajukan';
@@ -23,8 +25,12 @@ if (isset($_POST['upload'])) {
    // Show message when user added
    echo "<script>alert('Data Berhasil di Input!'); window.location = 'cek_surat.php'</script>";
 }
+
 // Edit Revisi Penelitian
 if (isset($_POST['revisi'])) {
+
+
+
    $id=$_POST['id'];
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
@@ -45,6 +51,7 @@ if (isset($_POST['revisi'])) {
    // Show message when user added
    echo "<script>alert('Data Berhasil di Revisi!'); window.location = 'cek_surat.php'</script>";
 }
+
 
 // Tambah Data Pengmas
 
@@ -90,3 +97,4 @@ if (isset($_POST['revisi_pengmas'])) {
    // Show message when user added
    echo "<script>alert('Data Berhasil di Revisi!'); window.location = 'cek_pengmas.php'</script>";
 }
+
