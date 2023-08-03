@@ -40,7 +40,7 @@
                   <select class="form-control" id="status" name="status">
                     <option value="Sedang Diproses">Sedang Diproses</option>
                     <option value="Berkas Tidak Lengkap">Berkas Tidak Lengkap</option>
-                    <option value="Surat Sudah Bisa Diambil">Surat Sudah Bisa Diambil</option>
+                    <option value="Disetujui">Disetujui</option>
                   </select>
                 </div>
                 <div class="form-group">

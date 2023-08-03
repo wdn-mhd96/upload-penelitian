@@ -59,15 +59,21 @@ if ($_SESSION['level'] != "dosen") {
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="surat_mhs.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
-                            Penelitian
-                        </a>
+                        
                         <a class="nav-link" href="cek_surat.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
-                            Cek Penelitian
+                            Proposal Penelitian
                         </a>
-
+                        <?php
+                        include '../../koneksi/koneksi.php';
+                        $nim=$_SESSION['username'];
+                        $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status='Disetujui'");
+                        if(mysqli_num_rows($query)>0) { ?>
+                        <a class="nav-link" href="log_book.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Log Book
+                        </a>
+                        <?php }?>                
                         <a class="nav-link" href="cek_pengmas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
                             Pengabdian Masyarakat
