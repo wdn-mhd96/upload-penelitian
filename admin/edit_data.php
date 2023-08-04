@@ -15,7 +15,7 @@ $tanggal = date('l, d-m-Y');
 // update data ke database
         if($_POST['status'] == 'Disetujui')
         {
-            $q = mysqli_query($koneksi, "INSERT into logbook_header values ('', '$nim', '$nama','$tanggal' )");
+            $q = mysqli_query($koneksi, "INSERT into logbook_header values ('', '$id', '$nim','$tanggal' )");
         }
         $a = mysqli_query($koneksi, "UPDATE surat_mhs SET judul='$nama', nim='$nim', status='$status', krs ='$krs' where Id='$id'");
             echo "<script>alert('berhasil'); window.location = 'suratku.php';</script>";

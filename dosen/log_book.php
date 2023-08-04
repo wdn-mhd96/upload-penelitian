@@ -1,4 +1,4 @@
-<?php include_once "header.php"; ?>
+<?php include "header.php"; ?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
@@ -12,54 +12,40 @@
       $no = 1;
       $gg = $_SESSION['username'];
       $sql = "SELECT * from surat_mhs where nim='$gg' and status='Disetujui'";
-      $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
-      // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
+      $query = mysqli_query($koneksi, $sql) or die(mysqli_error());                                                     
       ?>
-      <select name="judul" id="">
+      <form action="" method="post">
+      <div class="form-row ml-1">
+      <select name="judul" id="" class="form-control w-25 mr-3">
         <?php while($a = mysqli_fetch_array($query)) { ?>
-            <option value="<?= $a['id']?>"><?= $a['judul']; ?></option>
+            <option value="<?= $a['Id']?>"><?= $a['judul']; ?></option>
         <?php } ?>
       </select>
-      <button type="submit" class="btn btn-primary">Buka Logbook</button>
-        <div class="card mb-4">
+      <button type="submit" class="btn btn-primary" name="tampil">Buka Logbook</button>  
+      </div>
+      </form>
+      <br>
+      <div class="card mb-4">
           <div class="card text-center">
             <div class="card-header">
-              Status Berkas Pengmas Saya
+              Logbook
             </div>
-            <form action="?id=''"></form>
-            <div class="card-body">
-            <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Nim</th>
-                    <th>Judul Penelitian</th>
-                    <th>Lampiran</th>
-                    <!--  <th>KRS</th> -->
-                    <th>Tanggal</th>
-                    <th>Status</th>
-                    <th>Catatan</th>
-                  </tr>
-                </thead>
-                <!-- <?php while ($row = mysqli_fetch_array($query)) { ?> -->
-                  <!-- <tbody>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $row['judul_pengmas']; ?></td>
-                      <td><?php echo $row['nama']; ?></td>
-                      <td><a href="../uploads/pengmas/<?php echo $row['file_pengmas']; ?>" target="__blank"><?php echo $row['file_pengmas']; ?></a></td>
-                      <!-- <td><?php echo $row['krs']; ?></td> -->
-                      <td><?php echo $row['tanggal_pengmas']; ?></td>
-                      
-                      <td><?= $row['catatan']; ?></td>
-                    </tr>
-                  </tbody>
-                <!-- <?php } ?> -->
-              </table>
+            <?php 
+            include '../../koneksi/koneksi.php';
+            if(isset($_POST['tampil']))
+            {
+              $id = $_POST['judul'];
+              $query = mysqli_query($koneksi, "SELECT * from logbook2 where id_penelitian='$id'");
+              $b = mysqli_fetch_array($query);
+              $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mb-2'>Tambah Log</a>";
+              mysqli_data_seek($query, 0);
+              
+            }
 
-        
-            </div>
+            ?>
+            <?php include 'data-logbook.php'?>
           </div>
         </div>
   </main>
+
   <?php include_once "footer.php"; ?>
