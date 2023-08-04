@@ -13,7 +13,7 @@
                                 <form action="upload.php" method="post" enctype="multipart/form-data">
                                  <div class="form-group">
                                     <label for="judul">Kegiatan</label>
-                                    <input type="text" class="form-control"  value='<?= $row['id_logbook']?>' name="id_log" required>
+                                    <input type="hidden" class="form-control"  value='<?= $_GET['id']?>' name="id_log" required>
                                     <input type="text" class="form-control" id="nama" placeholder="Kegiatan" name="kegiatan" required>
                                   </div>
                                   <div class="form-group">
@@ -23,8 +23,8 @@
 
                                   <div class="form-group">
                                     <label for="judul">Progress</label>
-                                    <input type="text" class="form-control"  value='<?= $row['progress']?>' name="last_prog" required>
-                                    <input type="number" class="form-control" id="nama" placeholder="Kegiatan" name="prog" required>
+                                    <input type="hidden" class="form-control"  value='<?= $row['progress']?>' name="last_prog">
+                                    <input type="number" class="form-control" id="nama" placeholder="Progress" name="prog" required>
                                   </div>
                                   
                                   <hr>

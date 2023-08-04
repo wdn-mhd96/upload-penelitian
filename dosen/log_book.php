@@ -36,9 +36,19 @@
             {
               $id = $_POST['judul'];
               $query = mysqli_query($koneksi, "SELECT * from logbook2 where id_penelitian='$id'");
+              if(mysqli_num_rows($query)>0)
+              {
               $b = mysqli_fetch_array($query);
               $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mb-2'>Tambah Log</a>";
               mysqli_data_seek($query, 0);
+              }
+              else
+              {
+                $query = mysqli_query($koneksi, "SELECT * from logbook_header where id_penelitian='$id'");
+                $b = mysqli_fetch_array($query);
+                $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mb-2'>Tambah Log</a>";
+              }
+              
               
             }
 
