@@ -98,3 +98,31 @@ if (isset($_POST['revisi_pengmas'])) {
    echo "<script>alert('Data Berhasil di Revisi!'); window.location = 'cek_pengmas.php'</script>";
 }
 
+
+//upload logbook
+if (isset($_POST['tambah_logbook'])) {
+
+   $id_log = $_POST['id_log'];
+   $kegiatan = $_POST['kegiatan'];
+   $last_prog = $_POST['last_prog'];
+   $last_progg = (int)$last_prog;
+   $prog = $_POST['prog'];
+   $progg = (int)$prog;
+   $tanggal = $_POST['tanggal'];
+   if($last_progg > $progg)
+   {
+      echo "<script>alert('Progress tidak boleh berkurang');window.location = 'log_book.php';</script>";
+   }
+   else if ($progg >100)
+   {
+      echo "<script>alert('Progress maksimal 100%');window.location = 'log_book.php';</script>";
+   }
+   else
+   {
+      $result = mysqli_query($koneksi, "INSERT INTO logbook_detail VALUES('','$id_log','$kegiatan', '$tanggal', '$prog')");
+
+   // Show message when user added
+   echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
+   }
+  
+}
