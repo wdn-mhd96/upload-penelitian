@@ -15,60 +15,60 @@
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
       ?>
-        <div class="card mb-4">
-          <div class="card text-center">
-            <div class="card-header">
-              Status Berkas Pengmas Saya
-            </div>
-            <div class="card-body">
-            <h3 class="float-left"><span><a  class='btn btn-primary' href='tambah_pengmas.php'>Tambah Data Pengmas</a></span></h3>  
+      <div class="card mb-4">
+        <div class="card text-center">
+          <div class="card-header">
+            Status Berkas Pengmas Saya
+          </div>
+          <div class="card-body">
+            <h3 class="float-left"><span><a class='btn btn-primary' href='tambah_pengmas.php'>Tambah Data Pengmas</a></span></h3>
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
-                <thead>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Judul Laporan</th>
+                  <th>Nama Dosen</th>
+                  <th>Lampiran</th>
+                  <!--  <th>KRS</th> -->
+                  <th>Tanggal</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <?php while ($row = mysqli_fetch_array($query)) { ?>
+                <tbody>
                   <tr>
-                    <th>No.</th>
-                    <th>Judul Laporan</th>
-                    <th>Nama Dosen</th>
-                    <th>Lampiran</th>
-                    <!--  <th>KRS</th> -->
-                    <th>Tanggal</th>
-                    <th>Status</th>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $row['judul_pengmas']; ?></td>
+                    <td><?php echo $row['nama']; ?></td>
+                    <td><a href="../uploads/pengmas/<?php echo $row['file_pengmas']; ?>" target="__blank"><?php echo $row['file_pengmas']; ?></a></td>
+                    <!-- <td><?php echo $row['krs']; ?></td> -->
+                    <td><?php echo $row['tanggal_pengmas']; ?></td>
+                    <td><?php
+                        if ($row['status_pengmas'] == 'Sudah Diajukan') {
+                          echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
+                        }
+                        if ($row['status_pengmas'] == 'Sedang Diproses') {
+                          echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
+                        }
+                        if ($row['status_pengmas'] == 'Disetujui') {
+                          echo "<span class='badge badge-info'>Berkas Disetujui Silahkan upload Laporan</span>";
+                        }
+                        if ($row['status_pengmas'] == 'Berkas Tidak Lengkap') {
+                          echo "<span class='badge badge-danger'>berkas tidak lengkap</span><br><a href=revisi_pengmas.php?id=" . $row['id_pengmas'] . "><span>Revisi</span></a>";
+                        }
+                        if ($row['status_pengmas'] == 'Revisi') {
+                          echo "<span class='badge badge-success'>Proses Revisi</span>";
+                        }
+                        ?></td>
+                    <td><?= $row['catatan']; ?></td>
                   </tr>
-                </thead>
-                <?php while ($row = mysqli_fetch_array($query)) { ?>
-                  <tbody>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <td><?php echo $row['judul_pengmas']; ?></td>
-                      <td><?php echo $row['nama']; ?></td>
-                      <td><a href="../uploads/pengmas/<?php echo $row['file_pengmas']; ?>" target="__blank"><?php echo $row['file_pengmas']; ?></a></td>
-                      <!-- <td><?php echo $row['krs']; ?></td> -->
-                      <td><?php echo $row['tanggal_pengmas']; ?></td>
-                      <td><?php
-                          if ($row['status_pengmas'] == 'Sudah Diajukan') {
-                            echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
-                          }
-                          if ($row['status_pengmas'] == 'Sedang Diproses') {
-                            echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
-                          }
-                          if ($row['status_pengmas'] == 'Disetujui') {
-                            echo "<span class='badge badge-info'>Berkas Disetujui Silahkan upload Laporan</span>";
-                          }
-                          if ($row['status_pengmas'] == 'Berkas Tidak Lengkap') {
-                            echo "<span class='badge badge-danger'>berkas tidak lengkap</span><br><a href=revisi_pengmas.php?id=".$row['id_pengmas']."><span>Revisi</span></a>";
-                          }
-                          if ($row['status_pengmas'] == 'Revisi') {
-                            echo "<span class='badge badge-success'>Proses Revisi</span>";
-                          }
-                          ?></td>
-                      <td><?= $row['catatan']; ?></td>
-                    </tr>
-                  </tbody>
-                <?php } ?>
-              </table>
+                </tbody>
+              <?php } ?>
+            </table>
 
-        
-            </div>
+
           </div>
         </div>
+      </div>
   </main>
   <?php include_once "footer.php"; ?>
