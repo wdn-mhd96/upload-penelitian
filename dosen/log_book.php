@@ -62,21 +62,17 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nim</th>
-                  <th>ISi Logbook</th>
+                  <th>kode Dosen</th>
+                  <th>Kegiatan</th>
                   <th>tanggal</th>
                   <th>Progress</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
             </table>
-
-
           </div>
         </div>
-
       </div>
-      <?php include 'data-logbook.php' ?>
     </div>
 </div>
 </div>
