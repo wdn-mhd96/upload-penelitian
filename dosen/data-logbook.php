@@ -1,7 +1,7 @@
 
 <div class="card-body">
 <?php echo $a ?>
-            <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="datalogbook" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>No.</th>
@@ -12,7 +12,7 @@
 
                   </tr>
                 </thead>
-                <?php  
+                <!-- <?php  
                 
                 while($row = mysqli_fetch_array($query)) { ?>
                   <tbody>
@@ -25,8 +25,8 @@
  
                     </tr>
                   </tbody>
-             <?php } ?>
+             <?php } ?> -->
               </table>
-
+                
         
             </div>

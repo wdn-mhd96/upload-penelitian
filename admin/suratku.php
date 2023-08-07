@@ -42,7 +42,11 @@ $(document).ready(function() {
     $('#example').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "data.php",
+        "ajax": { "url":"data.php",
+                "data" : {
+                    "id" : 33,
+                },
+        },
         "order": [[ 0, 'asc' ]],
 
         // membuat kolom
