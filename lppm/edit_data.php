@@ -32,6 +32,7 @@ $nama = $_POST['nama'];
 $nim = $_POST['nim'];
 $status = $_POST['status'];
 $krs = $_POST['krs'];
+$tanggal = date('l, d-m-Y');
 // update data ke database
 $a = mysqli_query($koneksi, "UPDATE tpengmas SET judul_pengmas='$nama', nim='$nim', status_pengmas='$status', catatan ='$krs' where id_pengmas='$id'");
     if($a)
@@ -43,6 +44,10 @@ $a = mysqli_query($koneksi, "UPDATE tpengmas SET judul_pengmas='$nama', nim='$ni
             echo "<script>alert('gagal'); window.location = 'cek_pengmas.php';</script>";
             
         }
+        if($_POST['status'] == 'Disetujui')
+       {
+           $q = mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id','$nim', 'pengmas','','$tanggal',0)");
+       }
 // mengalihkan halaman kembali ke index.php
 }
 
