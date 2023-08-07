@@ -29,7 +29,7 @@
       <div class="card mb-4">
         <div class="card text-center">
           <div class="card-header">
-            List Logbook
+            List Logbook <?php echo $a['judul']; ?>
           </div>
           <?php
           include '../../koneksi/koneksi.php';
