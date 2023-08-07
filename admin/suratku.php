@@ -36,16 +36,17 @@
     <!-- import jquery datatable -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
-    <!-- script javascript untuk datatable -->
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "processing": true,
-                "serverSide": true,
-                "ajax": "data.php",
-                "order": [
-                    [0, 'asc']
-                ],
+<!-- script javascript untuk datatable -->
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "columnDefs": [
+             { "width": "12%", "targets": 7 }
+             ],
+        "processing": true,
+        "serverSide": true,
+        "ajax": "data.php",
+        "order": [[ 0, 'asc' ]],
 
                 // membuat kolom
                 "columns": [

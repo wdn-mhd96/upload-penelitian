@@ -11,56 +11,54 @@
       include "../../koneksi/koneksi.php";
       $no = 1;
       $gg = $_SESSION['username'];
-      $sql = "SELECT * from laporan_hasil JOIN user on laporan_hasil.nim = user.username JOIN surat_mhs on laporan_hasil.nim = surat_mhs.nim where nim='$gg'";
+      $sql = "SELECT * from laporan where nim='$gg'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
       ?>
         <div class="card mb-4">
           <div class="card text-center">
             <div class="card-header">
-              Status Berkas Pengmas Saya
+              Daftar Laporan Hasil
             </div>
-            <div class="card-body">
-            <h3 class="float-left"><span><a  class='btn btn-primary' href='tambah_pengmas.php'>Tambah Data Pengmas</a></span></h3>  
+            <div class="card-body"> 
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>No.</th>
                     <th>Judul Laporan</th>
+                    <th>Jenis Laporan</th>
                     <th>Nama Dosen</th>
                     <th>Lampiran</th>
-                    <!--  <th>KRS</th> -->
                     <th>Tanggal</th>
                     <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <?php while ($row = mysqli_fetch_array($query)) { ?>
                   <tbody>
                     <tr>
                       <td><?php echo $no++; ?></td>
+                      <?php if($row['jenis_laporan'] == "pengmas") {?>
                       <td><?php echo $row['judul_pengmas']; ?></td>
+                      <?php  } 
+                      else
+                      {
+                        ?>
+                        <td><?php echo $row['judul']; ?></td>
+                      <?php } ?>
+                      <td><?php echo $row['jenis_laporan']; ?></td>
                       <td><?php echo $row['nama']; ?></td>
-                      <td><a href="../uploads/pengmas/<?php echo $row['file_pengmas']; ?>" target="__blank"><?php echo $row['file_pengmas']; ?></a></td>
-                      <!-- <td><?php echo $row['krs']; ?></td> -->
-                      <td><?php echo $row['tanggal_pengmas']; ?></td>
-                      <td><?php
-                          if ($row['status_pengmas'] == 'Sudah Diajukan') {
-                            echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
-                          }
-                          if ($row['status_pengmas'] == 'Sedang Diproses') {
-                            echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
-                          }
-                          if ($row['status_pengmas'] == 'Disetujui') {
-                            echo "<span class='badge badge-info'>Berkas Disetujui Silahkan upload Laporan</span>";
-                          }
-                          if ($row['status_pengmas'] == 'Berkas Tidak Lengkap') {
-                            echo "<span class='badge badge-danger'>berkas tidak lengkap</span><br><a href=revisi_pengmas.php?id=".$row['id_pengmas']."><span>Revisi</span></a>";
-                          }
-                          if ($row['status_pengmas'] == 'Revisi') {
-                            echo "<span class='badge badge-success'>Proses Revisi</span>";
-                          }
-                          ?></td>
-                      <td><?= $row['catatan']; ?></td>
+                      <td><a href="../uploads/laporan/<?php echo $row['file']; ?>" target="__blank"><?php echo $row['file']; ?></a></td>
+                      <td><?php echo $row['tanggal_laporan']; ?></td>
+                      <?php if($row['status']==0) {?>
+                      <td>Belum Upload File Laporan</td>
+                      <?php }
+                      else 
+                      {
+                        ?>
+                        <td>File Sudah Di Upload</td>
+                        <?php } ?>
+                        <td><a href="edit_laporan.php?id=<?= $row['id_laporan']?>" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Laporan"><i class="fas fa-pen"></i></a></td>
                     </tr>
                   </tbody>
                 <?php } ?>
