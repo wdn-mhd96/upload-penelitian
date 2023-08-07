@@ -11,7 +11,7 @@
         <th>Kegiatan</th>
         <th>tanggal</th>
         <th>Progress</th>
-
+        <th>Aksi</th>
       </tr>
     </thead>
   </table>
