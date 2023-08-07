@@ -10,7 +10,7 @@ $jumlah = mysqli_num_rows($total);
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-        <h1 class="mt-4">Dashboard</h1>
+            <h1 class="mt-4">Dashboard</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Halo <b><?php echo $_SESSION['username']; ?></b>
                     <br>
@@ -24,7 +24,7 @@ $jumlah = mysqli_num_rows($total);
                         <div class="card-body"><b>Pengumuman</b></div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <p>
-                                halo, aku adalah pengumuman! edit aku ya :)
+                                Kepada seluruh Dosen dan peneliti, Bagi yang telah menyelesaikan penelitian dan siap untuk membagikannya, Aplikasi ini merupakan fasilitas pengunggahan yang mudah dan aman.
                             </p>
                         </div>
                     </div>
@@ -33,4 +33,4 @@ $jumlah = mysqli_num_rows($total);
 
         </div>
     </main>
-<?php include 'footer.php'?>
+    <?php include 'footer.php' ?>
