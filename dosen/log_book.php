@@ -70,37 +70,31 @@
 
 <script>
   $(document).ready(function() {
-    $('#datalogbook').DataTable({
-      "processing": true,
-      "serverSide": true,
-      "ajax": "log_data.php?id=<?= $b['id_logbook'] ?>",
-      "order": [
-        [0, 'asc']
-      ],
-      // membuat kolom
-      "columns": [
-        // untuk membuat data index
-        {
-          data: 'no',
-          name: 'id',
-          render: function(data, type, row, meta) {
-            return meta.row + meta.settings._iDisplayStart + 1;
-          }
-        },
-        // samakan data kolom sesuai dt di data.php
-        {
-          "data": 'nim'
-        },
-        {
-          "data": 'isi_logbook'
-        },
-        {
-          "data": 'tanggal'
-        },
-        {
-          "data": 'progress'
-        },
-      ]
-    });
-  });
+    $('#datalogbook').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "log_data.php?id=<?= $b['id_logbook']?>",
+ 
+        "order": [[ 0, 'asc' ]],
+
+        // membuat kolom
+        "columns": [
+
+            //untuk membuat data index
+            { data: 'no', name:'id', render: function (data, type, row, meta) {
+                  return meta.row + meta.settings._iDisplayStart + 1;
+              }},
+
+              //samakan data kolom sesuai dt di data.php
+            { "data": 'nim' },
+            { "data": 'isi_logbook' },
+            { "data": 'tanggal' },
+            { "data": 'progress' }, 
+            { "data": 'aksi' }, 
+        ]
+    } );
+} );
+
 </script>
+  <?php include_once "footer.php"; ?>
+

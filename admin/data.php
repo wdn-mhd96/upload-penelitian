@@ -11,23 +11,23 @@ $primaryKey = 'id';
 // 'dt' adalah parameter yang akan ditampilkan di database pada index.php
 
 $columns = array(
-    array('db' => 'id', 'dt' => 'no'),
-    array('db' => 'nama', 'dt' => 'nama'),
-    array('db' => 'judul',  'dt' => 'judul'),
-    array('db' => 'file',   'dt' => 'file'),
-    array('db' => 'tanggal',   'dt' => 'tanggal'),
-    array('db' => 'status',   'dt' => 'status'),
-    array('db' => 'krs',   'dt' => 'krs'),
-    array(
-        'db' => 'id',
-        'dt' => 'aksi',
 
-        // kalo kalian mau bikin tombol edit pake 'formatter' => function($d, $row) {return ....}
-        // kalian bisa custom dengan menggunakan class bootstrap untuk mempercantik tampilan
-        'formatter' => function ($d, $row) {
-            return '<a href="edit.php?id=' . $d . '" class="badge badge-warning">EDIT</a><br><a onclick="return confirm(`yakin hapus data?`);"href="hapus.php?id=' . $d . '" class="badge badge-danger">Hapus</a>';
-        }
-    ),
+    array(  'db' => 'id', 'dt' => 'no' ),
+    array(  'db' => 'nama', 'dt' => 'nama' ),
+    array(  'db' => 'judul',  'dt' => 'judul' ),
+    array(  'db' => 'file',   'dt' => 'file' ),
+    array(  'db' => 'tanggal',   'dt' => 'tanggal' ),
+    array(  'db' => 'status',   'dt' => 'status' ),
+    array(  'db' => 'krs',   'dt' => 'krs' ),
+    array(  'db' => 'id',
+            'dt' => 'aksi',
+
+            // kalo kalian mau bikin tombol edit pake 'formatter' => function($d, $row) {return ....}
+            // kalian bisa custom dengan menggunakan class bootstrap untuk mempercantik tampilan
+            'formatter' => function($d, $row) {
+                return '<a href="edit.php?id='.$d.'" class="btn btn-warning mr-1" data-toggle="tooltip" data-placement="top" title="Edit data Penelitian"><i class="fas fa-pen"></i></a><a onclick="return confirm(`yakin hapus data?`);"href="hapus.php?id='.$d.'" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Hapus data Penelitian"><i class="fas fa-trash"></i></a>';
+            }
+         ),
 );
 
 //melakukan koneksi ke database

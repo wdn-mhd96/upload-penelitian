@@ -11,17 +11,16 @@
       include "../../koneksi/koneksi.php";
       $no = 1;
       $gg = $_SESSION['username'];
-      $sql = "SELECT * from laporan_hasil JOIN user on laporan_hasil.nim = user.username JOIN surat_mhs on laporan_hasil.nim = surat_mhs.nim where nim='$gg'";
+      $sql = "SELECT * from laporan where nim='$gg'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
       ?>
       <div class="card mb-4">
         <div class="card text-center">
           <div class="card-header">
-            Status Berkas Pengmas Saya
+            Daftar Laporan Hasil
           </div>
           <div class="card-body">
-            <h3 class="float-left"><span><a class='btn btn-primary' href='tambah_pengmas.php'>Tambah Data Pengmas</a></span></h3>
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -65,8 +64,6 @@
                 </tbody>
               <?php } ?>
             </table>
-
-
           </div>
         </div>
       </div>
