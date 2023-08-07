@@ -15,58 +15,58 @@
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
       ?>
-        <div class="card mb-4">
-          <div class="card text-center">
-            <div class="card-header">
-              Daftar Laporan Hasil
-            </div>
-            <div class="card-body"> 
+      <div class="card mb-4">
+        <div class="card text-center">
+          <div class="card-header">
+            Daftar Laporan Hasil
+          </div>
+          <div class="card-body">
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
-                <thead>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Judul Laporan</th>
+                  <th>Jenis Laporan</th>
+                  <th>Nama Dosen</th>
+                  <th>Lampiran</th>
+                  <th>Tanggal</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <?php while ($row = mysqli_fetch_array($query)) { ?>
+                <tbody>
                   <tr>
-                    <th>No.</th>
-                    <th>Judul Laporan</th>
-                    <th>Jenis Laporan</th>
-                    <th>Nama Dosen</th>
-                    <th>Lampiran</th>
-                    <th>Tanggal</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <?php while ($row = mysqli_fetch_array($query)) { ?>
-                  <tbody>
-                    <tr>
-                      <td><?php echo $no++; ?></td>
-                      <?php if($row['jenis_laporan'] == "pengmas") {?>
+                    <td><?php echo $no++; ?></td>
+                    <?php if ($row['jenis_laporan'] == "pengmas") { ?>
                       <td><?php echo $row['judul_pengmas']; ?></td>
-                      <?php  } 
-                      else
-                      {
-                        ?>
-                        <td><?php echo $row['judul']; ?></td>
-                      <?php } ?>
-                      <td><?php echo $row['jenis_laporan']; ?></td>
-                      <td><?php echo $row['nama']; ?></td>
+                    <?php  } else {
+                    ?>
+                      <td><?php echo $row['judul']; ?></td>
+                    <?php } ?>
+                    <td><?php echo $row['jenis_laporan']; ?></td>
+                    <td><?php echo $row['nama']; ?></td>
+                    <?php if ($row['file'] == '') { ?>
+                      <td>Lampiran Belum di Upload</td>
+                    <?php } else { ?>
                       <td><a href="../uploads/laporan/<?php echo $row['file']; ?>" target="__blank"><?php echo $row['file']; ?></a></td>
-                      <td><?php echo $row['tanggal_laporan']; ?></td>
-                      <?php if($row['status']==0) {?>
+                    <?php } ?>
+                    <td><?php echo $row['tanggal_laporan']; ?></td>
+                    <?php if ($row['status'] == 0) { ?>
                       <td>Belum Upload File Laporan</td>
-                      <?php }
-                      else 
-                      {
-                        ?>
-                        <td>File Sudah Di Upload</td>
-                        <?php } ?>
-                        <td><a href="edit_laporan.php?id=<?= $row['id_laporan']?>" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Laporan"><i class="fas fa-pen"></i></a></td>
-                    </tr>
-                  </tbody>
-                <?php } ?>
-              </table>
+                    <?php } else {
+                    ?>
+                      <td>File Sudah Di Upload</td>
+                    <?php } ?>
+                    <td><a href="edit_laporan.php?id=<?= $row['id_laporan'] ?>" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Laporan"><i class="fas fa-pen"></i></a></td>
+                  </tr>
+                </tbody>
+              <?php } ?>
+            </table>
 
-        
-            </div>
+
           </div>
         </div>
+      </div>
   </main>
   <?php include_once "footer.php"; ?>

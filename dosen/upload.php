@@ -5,7 +5,7 @@ include '../../koneksi/koneksi.php';
 if (isset($_POST['upload'])) {
 
 
-   
+
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Sudah Diajukan';
@@ -31,7 +31,7 @@ if (isset($_POST['revisi'])) {
 
 
 
-   $id=$_POST['id'];
+   $id = $_POST['id'];
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Revisi';
@@ -40,10 +40,10 @@ if (isset($_POST['revisi'])) {
    $folder = "../uploads/";
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
    $file_loc = $_FILES['file']['tmp_name'];
-   
+
    $q = mysqli_query($koneksi, "SELECT * from surat_mhs where Id='$id'");
    $res = mysqli_fetch_array($q);
-   unlink("../uploads/".$res['file']);
+   unlink("../uploads/" . $res['file']);
    move_uploaded_file($file_loc, $folder . $file);
 
    $result = mysqli_query($koneksi, "UPDATE surat_mhs set judul='$nama', nim='$nim', status='$status', tanggal='$tanggal', file='$file', krs='$krs' where Id='$id'");
@@ -77,7 +77,7 @@ if (isset($_POST['upload_pengmas'])) {
 
 // Revisi Pengmas
 if (isset($_POST['revisi_pengmas'])) {
-   $id=$_POST['id'];
+   $id = $_POST['id'];
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Revisi';
@@ -86,10 +86,10 @@ if (isset($_POST['revisi_pengmas'])) {
    $folder = "../uploads/pengmas/";
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
    $file_loc = $_FILES['file']['tmp_name'];
-   
+
    $q = mysqli_query($koneksi, "SELECT * from tpengmas where id_pengmas='$id'");
    $res = mysqli_fetch_array($q);
-   unlink("../uploads/pengmas/".$res['file_pengmas']);
+   unlink("../uploads/pengmas/" . $res['file_pengmas']);
    move_uploaded_file($file_loc, $folder . $file);
 
    $result = mysqli_query($koneksi, "UPDATE tpengmas set judul_pengmas='$nama', nim='$nim', status_pengmas='$status', tanggal_pengmas='$tanggal', file_pengmas='$file', catatan='$krs' where id_pengmas='$id'");
@@ -109,45 +109,34 @@ if (isset($_POST['tambah_logbook'])) {
    $last_progg = (int)$last_prog;
    $progg = (int)$prog;
    $tanggal = $_POST['tanggal'];
-   $id_penelitian=$_POST['id_penelitian'];
-   $nim=$_POST['nim'];
-   if($last_progg > $progg)
-   {
+   $id_penelitian = $_POST['id_penelitian'];
+   $nim = $_POST['nim'];
+   if ($last_progg > $progg) {
       echo "<script>alert('Progress tidak boleh berkurang');window.location = 'log_book.php';</script>";
-   }
-   else if ($progg >100)
-   {
+   } else if ($progg > 100) {
       echo "<script>alert('Progress maksimal 100%');window.location = 'log_book.php';</script>";
-   }
-   else
-   {
+   } else {
       $result = mysqli_query($koneksi, "INSERT INTO logbook_detail VALUES('','$id_log','$kegiatan', '$tanggal', '$prog')");
-   echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
+      echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
    }
-   if($progg == 100)
-   {
+   if ($progg == 100) {
       $q = mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggal',0)");
-       
    }
-  
 }
 
 
 //upload laporan hasil
-if(isset($_POST['upload_laporan']))
-{
+if (isset($_POST['upload_laporan'])) {
    $id_laporan = $_POST['id_laporan'];
    $tanggal = date('Y-m-d');
    $folder = "../uploads/laporan/";
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
    $file_loc = $_FILES['file']['tmp_name'];
 
-   $q=mysqli_query($koneksi,"select * from laporan_hasil where id_laporan='$id_laporan'");
-   $row=mysqli_fetch_array($q);
-   unlink("../uploads/laporan/".$row['file']);
-   move_uploaded_file($file_loc, $folder.$file);
+   $q = mysqli_query($koneksi, "select * from laporan_hasil where id_laporan='$id_laporan'");
+   $row = mysqli_fetch_array($q);
+   unlink("../uploads/laporan/" . $row['file']);
+   move_uploaded_file($file_loc, $folder . $file);
    $query = mysqli_query($koneksi, "UPDATE laporan_hasil set file='$file', tanggal_laporan='$tanggal', status='1' where id_laporan='$id_laporan'");
    echo "<script>alert('Berhasil Upload Laporan Hasil!'); window.location = 'laporan_hasil.php'</script>";
-
-   
 }
