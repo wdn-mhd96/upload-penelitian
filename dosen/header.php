@@ -78,6 +78,11 @@ if ($_SESSION['level'] != "dosen") {
                             <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
                             Pengabdian Masyarakat
                         </a>
+                        <a class="nav-link" href="laporan_hasil.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-pdf"></i></div>
+                            Laporan Hasil
+                        </a>
+
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
