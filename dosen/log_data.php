@@ -15,15 +15,16 @@ $columns = array(
     array(  'db' => 'isi_logbook',  'dt' => 'isi_logbook' ),
     array(  'db' => 'tanggal_pelaksanaan',   'dt' => 'tanggal' ),
     array(  'db' => 'progress',  'dt' => 'progress' ),
-    // array(  'db' => 'id',
-    //         'dt' => 'aksi',
+    array(  'db' => 'id_log_detail',
+            'dt' => 'aksi',
 
     //         // kalo kalian mau bikin tombol edit pake 'formatter' => function($d, $row) {return ....}
     //         // kalian bisa custom dengan menggunakan class bootstrap untuk mempercantik tampilan
-    //         'formatter' => function($d, $row) {
-    //             return '<a href="edit.php?id='.$d.'" class="badge badge-warning">EDIT</a><br><a onclick="return confirm(`yakin hapus data?`);"href="hapus.php?id='.$d.'" class="badge badge-danger">Hapus</a>';
-    //         }
-    //      ),
+            'formatter' => function($d, $row) {
+                return '<a href="edit_laporan.php?id='.$d.'" class="btn btn-warning mr-1" data-toggle="tooltip" data-placement="top" title="Edit data Pengmas"><i class="fas fa-pen"></i></a>';
+            }
+    )
+        
 );
  
 //melakukan koneksi ke database

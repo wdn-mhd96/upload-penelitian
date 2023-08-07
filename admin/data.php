@@ -24,7 +24,7 @@ $columns = array(
             // kalo kalian mau bikin tombol edit pake 'formatter' => function($d, $row) {return ....}
             // kalian bisa custom dengan menggunakan class bootstrap untuk mempercantik tampilan
             'formatter' => function($d, $row) {
-                return '<a href="edit.php?id='.$d.'" class="badge badge-warning">EDIT</a><br><a onclick="return confirm(`yakin hapus data?`);"href="hapus.php?id='.$d.'" class="badge badge-danger">Hapus</a>';
+                return '<a href="edit.php?id='.$d.'" class="btn btn-warning mr-1" data-toggle="tooltip" data-placement="top" title="Edit data Penelitian"><i class="fas fa-pen"></i></a><a onclick="return confirm(`yakin hapus data?`);"href="hapus.php?id='.$d.'" class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Hapus data Penelitian"><i class="fas fa-trash"></i></a>';
             }
          ),
 );

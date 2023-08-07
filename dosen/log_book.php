@@ -90,8 +90,10 @@
             { "data": 'isi_logbook' },
             { "data": 'tanggal' },
             { "data": 'progress' }, 
+            { "data": 'aksi' }, 
         ]
     } );
 } );
+
 </script>
   <?php include_once "footer.php"; ?>

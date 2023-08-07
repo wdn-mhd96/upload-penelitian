@@ -40,6 +40,9 @@
 <script>
 $(document).ready(function() {
     $('#example').DataTable( {
+        "columnDefs": [
+             { "width": "12%", "targets": 7 }
+             ],
         "processing": true,
         "serverSide": true,
         "ajax": "data.php",
