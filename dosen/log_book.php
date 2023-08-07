@@ -41,7 +41,7 @@
               {
               $b = mysqli_fetch_array($query);
               // echo "<script>window.location  = 'log_book.php?id=".$b['id_logbook']."';</script>";
-              $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mb-2'>Tambah Log</a>";
+              $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mt-2'>Tambah Log</a>";
               mysqli_data_seek($query, 0);
               }
               else
@@ -49,7 +49,7 @@
                 $query = mysqli_query($koneksi, "SELECT * from logbook_header where id_penelitian='$id'");
                 $b = mysqli_fetch_array($query);
                 // echo "<script>window.location  = 'log_book.php?id=".$b['id_logbook']."';</script>";
-                $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mb-2'>Tambah Log</a>";
+                $a = "<a href='tambah_log.php?id=".$b['id_logbook']."' class='btn btn-primary float-left mt-2'>Tambah Log</a>";
               
               }
               
@@ -58,6 +58,7 @@
 
             ?>
             <?php include 'data-logbook.php'?>
+          </div>
           </div>
         </div>
   </main>
@@ -70,7 +71,7 @@
     $('#datalogbook').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "log_data.php",
+        "ajax": "log_data.php?id=<?= $b['id_logbook']?>",
  
         "order": [[ 0, 'asc' ]],
 
