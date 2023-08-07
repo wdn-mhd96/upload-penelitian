@@ -11,17 +11,14 @@ $nama = $_POST['nama'];
 $nim = $_POST['nim'];
 $status = $_POST['status'];
 $krs = $_POST['krs'];
+$tanggal = date('l, d-m-Y');
 // update data ke database
-$a = mysqli_query($koneksi, "UPDATE surat_mhs SET judul='$nama', nim='$nim', status='$status', krs ='$krs' where Id='$id'");
-    if($a)
+        if($_POST['status'] == 'Disetujui')
         {
+            $q = mysqli_query($koneksi, "INSERT into logbook_header values ('', '$id', '$nim','$tanggal' )");
+        }
+        $a = mysqli_query($koneksi, "UPDATE surat_mhs SET judul='$nama', nim='$nim', status='$status', krs ='$krs' where Id='$id'");
             echo "<script>alert('berhasil'); window.location = 'suratku.php';</script>";
-        }
-        else
-        {
-            echo "<script>alert('gagal'); window.location = 'suratku.php';</script>";
-            
-        }
 // mengalihkan halaman kembali ke index.php
 }
 
@@ -47,6 +44,8 @@ $a = mysqli_query($koneksi, "UPDATE tpengmas SET judul_pengmas='$nama', nim='$ni
             echo "<script>alert('gagal'); window.location = 'cek_pengmas.php';</script>";
             
        }
+
+
 // mengalihkan halaman kembali ke index.php
 }
 

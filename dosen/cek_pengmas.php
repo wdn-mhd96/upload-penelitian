@@ -51,8 +51,8 @@
                           if ($row['status_pengmas'] == 'Sedang Diproses') {
                             echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
                           }
-                          if ($row['status_pengmas'] == 'Surat Sudah Bisa Diambil') {
-                            echo "<span class='badge badge-info'>Berkas Sudah Bisa Diambil</span>";
+                          if ($row['status_pengmas'] == 'Disetujui') {
+                            echo "<span class='badge badge-info'>Berkas Disetujui Silahkan upload Laporan</span>";
                           }
                           if ($row['status_pengmas'] == 'Berkas Tidak Lengkap') {
                             echo "<span class='badge badge-danger'>berkas tidak lengkap</span><br><a href=revisi_pengmas.php?id=".$row['id_pengmas']."><span>Revisi</span></a>";

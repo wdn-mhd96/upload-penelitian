@@ -15,6 +15,12 @@
           $id = $_GET['id'];
           $data = mysqli_query($koneksi, "SELECT * from surat_mhs left JOIN user on surat_mhs.nim = user.username  where surat_mhs.Id='$id'");
           while ($d = mysqli_fetch_array($data)) {
+            if($d['status']=="Disetujui") {
+              echo "<h2>Proposal Sudah Disetujui</h2>";
+              echo "<br><a href='suratlpm.php' class='btn btn-outline-primary'>Kembali</a>";
+          }
+          else
+          {
           ?>
             <form method="post" action="edit_data.php">
               <div class="form-group">
@@ -40,7 +46,7 @@
                   <select class="form-control" id="status" name="status">
                     <option value="Sedang Diproses">Sedang Diproses</option>
                     <option value="Berkas Tidak Lengkap">Berkas Tidak Lengkap</option>
-                    <option value="Surat Sudah Bisa Diambil">Surat Sudah Bisa Diambil</option>
+                    <option value="Disetujui">Disetujui</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -53,6 +59,7 @@
                 <input type="submit" class="btn btn-primary" name="update" value="Simpan">
             </form>
           <?php
+          }
           }
           ?>
         </div>

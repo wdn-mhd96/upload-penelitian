@@ -14,7 +14,6 @@
       $sql = "SELECT * from surat_mhs left JOIN user on surat_mhs.nim = user.username where nim='$gg'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
-      if (mysqli_num_rows($query) > 0) {
       ?>
         <div class="card mb-4">
           <div class="card text-center">
@@ -22,6 +21,8 @@
               Status Berkas Saya
             </div>
             <div class="card-body">
+            <h3 class="float-left"><span><a  class='btn btn-primary' href='tambah_surat.php'> + Ajukan Proposal penelitian</a></span></h3>  
+            
               <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -51,8 +52,8 @@
                           if ($row['status'] == 'Sedang Diproses') {
                             echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
                           }
-                          if ($row['status'] == 'Surat Sudah Bisa Diambil') {
-                            echo "<span class='badge badge-info'>Berkas Sudah Bisa Diambil</span>";
+                          if ($row['status'] == 'Disetujui') {
+                            echo "<span class='badge badge-info'>Disetujui</span>";
                           }
                           if ($row['status'] == 'Berkas Tidak Lengkap') {
                             echo "<span class='badge badge-danger'>berkas tidak lengkap</span><a href=revisi.php?id=" . $row['Id'] . "><spanclass='badge badge-success'>Revisi</spanclass=></a>";
@@ -67,12 +68,6 @@
                 <?php } ?>
               </table>
 
-            <?php
-
-          } else {
-            echo '<center><h3><span class="badge badge-warning"> Maaf, anda belum menginputkan berkas apapun. </span></h3></center>';
-          }
-            ?>
             </div>
           </div>
         </div>

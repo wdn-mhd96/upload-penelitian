@@ -8,6 +8,7 @@ $q = mysqli_query($koneksi, "SELECT * from surat_mhs where Id='$id'");
 $res = mysqli_fetch_array($q);
 
 // menghapus data dari database dan menghapus file
+
 mysqli_query($koneksi, "delete from surat_mhs where Id='$id'");
 if (file_exists("../uploads/" . $res['file'])) {
     unlink("../uploads/" . $res['file']);
