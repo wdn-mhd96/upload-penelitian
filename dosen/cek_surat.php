@@ -56,7 +56,7 @@
                             echo "<span class='badge badge-info'>Disetujui</span>";
                           }
                           if ($row['status'] == 'Berkas Tidak Lengkap') {
-                            echo "<span class='badge badge-danger'>berkas tidak lengkap</span><a href=revisi.php?id=".$row['Id']."><span>Revisi</span></a>";
+                            echo "<span class='badge badge-danger'>berkas tidak lengkap</span><a href=revisi.php?id=" . $row['Id'] . "><spanclass='badge badge-success'>Revisi</spanclass=></a>";
                           }
                           if ($row['status'] == 'Revisi') {
                             echo "<span class='badge badge-success'>Proses Revisi</span>";
