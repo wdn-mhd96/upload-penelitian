@@ -1,3 +1,4 @@
+
 <div class="col-md-4">
   <?php echo $a ?>
 </div>
@@ -11,10 +12,11 @@
         <th>Kegiatan</th>
         <th>tanggal</th>
         <th>Progress</th>
-
+        <th>Aksi</th>
       </tr>
     </thead>
   </table>
 
 
 </div>
+

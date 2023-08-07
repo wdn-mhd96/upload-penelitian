@@ -14,6 +14,8 @@
                                  <div class="form-group">
                                     <label for="judul">Kegiatan</label>
                                     <input type="hidden" class="form-control"  value='<?= $_GET['id']?>' name="id_log" required>
+                                    <input type="hidden" class="form-control"  value='<?= $row['id_penelitian']?>' name="id_penelitian" required>
+                                    <input type="hidden" class="form-control"  value='<?= $row['nim']?>' name="nim" required>
                                     <input type="text" class="form-control" id="nama" placeholder="Kegiatan" name="kegiatan" required>
                                   </div>
                                   <div class="form-group">

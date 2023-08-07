@@ -50,9 +50,34 @@
       <br>
 
       <div class="card mb-4">
-        <div class="card text-center">
-          <div class="card-header">
-            <?= $c ?>
+          <div class="card text-center">
+            <div class="card-header">
+              <?= $c ?>
+            </div>
+            <div class="col-md-4">
+<?php echo $a ?>
+</div>
+
+<div class="card-body">
+  
+            <table class="table table-bordered" id="datalogbook" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Nim</th>
+                    <th>ISi Logbook</th>
+                    <th>tanggal</th>
+                    <th>Progress</th>
+                    <th>Aksi</th>
+
+                  </tr>
+              </thead>
+              </table>
+                
+        
+            </div>
+          </div>
+
           </div>
           <?php include 'data-logbook.php' ?>
         </div>
