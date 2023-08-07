@@ -52,56 +52,80 @@
           <div class="card-header">
             <?= $c ?>
           </div>
-          <?php include 'data-logbook.php' ?>
+          <div class="col-md-4">
+            <?php echo $a ?>
+          </div>
+
+          <div class="card-body">
+
+            <table class="table table-bordered" id="datalogbook" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Nim</th>
+                  <th>ISi Logbook</th>
+                  <th>tanggal</th>
+                  <th>Progress</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+            </table>
+
+
+          </div>
         </div>
+
       </div>
+      <?php include 'data-logbook.php' ?>
     </div>
-  </main>
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <!--import jquery datatable -->
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+</div>
+</div>
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!--import jquery datatable -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $('#datalogbook').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "log_data.php?id=<?= $b['id_logbook'] ?>",
+<script>
+  $(document).ready(function() {
+    $('#datalogbook').DataTable({
+      "processing": true,
+      "serverSide": true,
+      "ajax": "log_data.php?id=<?= $b['id_logbook'] ?>",
 
-        "order": [
-          [0, 'asc']
-        ],
+      "order": [
+        [0, 'asc']
+      ],
 
-        // membuat kolom
-        "columns": [
+      // membuat kolom
+      "columns": [
 
-          //untuk membuat data index
-          {
-            data: 'no',
-            name: 'id',
-            render: function(data, type, row, meta) {
-              return meta.row + meta.settings._iDisplayStart + 1;
-            }
-          },
+        //untuk membuat data index
+        {
+          data: 'no',
+          name: 'id',
+          render: function(data, type, row, meta) {
+            return meta.row + meta.settings._iDisplayStart + 1;
+          }
+        },
 
-          //samakan data kolom sesuai dt di data.php
-          {
-            "data": 'nim'
-          },
-          {
-            "data": 'isi_logbook'
-          },
-          {
-            "data": 'tanggal'
-          },
-          {
-            "data": 'progress'
-          },
-          {
-            "data": 'aksi'
-          },
-        ]
-      });
+        //samakan data kolom sesuai dt di data.php
+        {
+          "data": 'nim'
+        },
+        {
+          "data": 'isi_logbook'
+        },
+        {
+          "data": 'tanggal'
+        },
+        {
+          "data": 'progress'
+        },
+        {
+          "data": 'aksi'
+        },
+      ]
     });
-  </script>
-  <?php include_once "footer.php"; ?>
+  });
+</script>
+<?php include_once "footer.php"; ?>
