@@ -58,7 +58,7 @@
                         ?>
                         <td>File Sudah Di Upload</td>
                         <?php } ?>
-                        <td><a href="edit_laporan.php" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Laporan"><i class="fas fa-pen"></i></a></td>
+                        <td><a href="edit_laporan.php?id=<?= $row['id_laporan']?>" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Laporan"><i class="fas fa-pen"></i></a></td>
                     </tr>
                   </tbody>
                 <?php } ?>
