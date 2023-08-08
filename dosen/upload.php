@@ -103,14 +103,15 @@ if (isset($_POST['revisi_pengmas'])) {
 if (isset($_POST['tambah_logbook'])) {
 
    $id_log = $_POST['id_log'];
+   $id_penelitian = $_POST['id_penelitian'];
    $kegiatan = $_POST['kegiatan'];
    $last_prog = $_POST['last_prog'];
    $prog = $_POST['prog'];
    $last_progg = (int)$last_prog;
    $progg = (int)$prog;
    $tanggal = $_POST['tanggal'];
-   $id_penelitian = $_POST['id_penelitian'];
    $nim = $_POST['nim'];
+   $tanggal=date('Y-m-d');
    if ($last_progg > $progg) {
       echo "<script>alert('Progress tidak boleh berkurang');window.location = 'log_book.php';</script>";
    } else if ($progg > 100) {
@@ -120,7 +121,7 @@ if (isset($_POST['tambah_logbook'])) {
       echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
    }
    if ($progg == 100) {
-      $q = mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggal',0)");
+      mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggal',0)");
    }
 }
 
@@ -135,8 +136,8 @@ if (isset($_POST['upload_laporan'])) {
 
    $q = mysqli_query($koneksi, "select * from laporan_hasil where id_laporan='$id_laporan'");
    $row = mysqli_fetch_array($q);
-   unlink("../uploads/laporan/" . $row['file']);
+   unlink("../uploads/laporan/" . $row['file_laporan']);
    move_uploaded_file($file_loc, $folder . $file);
-   $query = mysqli_query($koneksi, "UPDATE laporan_hasil set file='$file', tanggal_laporan='$tanggal', status='1' where id_laporan='$id_laporan'");
+   $query = mysqli_query($koneksi, "UPDATE laporan_hasil set file_laporan='$file', tanggal_laporan='$tanggal', status='1' where id_laporan='$id_laporan'");
    echo "<script>alert('Berhasil Upload Laporan Hasil!'); window.location = 'laporan_hasil.php'</script>";
 }

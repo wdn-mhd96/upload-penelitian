@@ -1,7 +1,7 @@
 <?php include_once "header.php";
     include "../../koneksi/koneksi.php";
     $id=$_GET['id'];
-    $query = mysqli_query($koneksi, "SELECT * from laporan left join laporan_hasil on laporan.id_laporan = laporan_hasil.id_laporan where laporan.id_laporan='$id'");
+    $query = mysqli_query($koneksi, "SELECT * from laporan2 left join laporan_hasil on laporan2.id_laporan = laporan_hasil.id_laporan where laporan2.id_laporan='$id'");
     $row = mysqli_fetch_array($query);
 ?>
 <div id="layoutSidenav_content">

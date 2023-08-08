@@ -11,7 +11,7 @@
       include "../../koneksi/koneksi.php";
       $no = 1;
       $gg = $_SESSION['username'];
-      $sql = "SELECT * from laporan where nim='$gg'";
+      $sql = "SELECT * from laporan2 where nim='$gg'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
       ?>
@@ -46,10 +46,10 @@
                     <?php } ?>
                     <td><?php echo $row['jenis_laporan']; ?></td>
                     <td><?php echo $row['nama']; ?></td>
-                    <?php if ($row['file'] == '') { ?>
+                    <?php if ($row['file_laporan'] == '') { ?>
                       <td>Lampiran Belum di Upload</td>
                     <?php } else { ?>
-                      <td><a href="../uploads/laporan/<?php echo $row['file']; ?>" target="__blank"><?php echo $row['file']; ?></a></td>
+                      <td><a href="../uploads/laporan/<?php echo $row['file_laporan']; ?>" target="__blank"><?php echo $row['file_laporan']; ?></a></td>
                     <?php } ?>
                     <td><?php echo $row['tanggal_laporan']; ?></td>
                     <?php if ($row['status'] == 0) { ?>

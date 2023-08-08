@@ -21,7 +21,7 @@ $columns = array(
     //         // kalo kalian mau bikin tombol edit pake 'formatter' => function($d, $row) {return ....}
     //         // kalian bisa custom dengan menggunakan class bootstrap untuk mempercantik tampilan
             'formatter' => function($d, $row) {
-                return '<a href="edit_laporan.php?id='.$d.'" class="btn btn-warning mr-1" data-toggle="tooltip" data-placement="top" title="Edit data Pengmas"><i class="fas fa-pen"></i></a>';
+                return '<a href="edit_log.php?id='.$d.'" class="btn btn-warning mr-1" data-toggle="tooltip" data-placement="top" title="Edit data Pengmas"><i class="fas fa-pen"></i></a>';
             }
     )
         
