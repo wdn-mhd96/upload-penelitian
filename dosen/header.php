@@ -63,12 +63,16 @@ if ($_SESSION['level'] != "dosen") {
                         <a class="nav-link" href="cek_surat.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
                             Proposal Penelitian
-                        </a>
+                        
                         <?php
                         include '../../koneksi/koneksi.php';
                         $nim=$_SESSION['username'];
                         $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status='Disetujui'");
                         if(mysqli_num_rows($query)>0) { ?>
+                        <a class="nav-link" href="revisi.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pen"></i></div>
+                            Perbaikan Proposal
+                        </a>
                         <a class="nav-link" href="log_book.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Log Book

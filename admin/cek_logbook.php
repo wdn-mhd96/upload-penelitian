@@ -9,11 +9,10 @@
       </ol>
       <?php
       include "../../koneksi/koneksi.php";
+      
       $no = 1;
-      $gg = $_SESSION['username'];
-      $sql = "SELECT * from surat_mhs where nim='$gg' and status='Disetujui'";
+      $sql = "SELECT * from surat_mhs where status='Disetujui'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
-
       ?>
       <form action="" method="post">
         <div class="form-row ml-1">
@@ -67,7 +66,6 @@
                   <th>Kegiatan</th>
                   <th>tanggal</th>
                   <th>Progress</th>
-                  <th>Aksi</th>
                 </tr>
               </thead>
             </table>
@@ -117,9 +115,6 @@
         },
         {
           "data": 'progress'
-        },
-        {
-          "data": 'aksi'
         },
       ]
     });

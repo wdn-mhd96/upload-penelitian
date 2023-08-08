@@ -111,7 +111,7 @@ if (isset($_POST['tambah_logbook'])) {
    $progg = (int)$prog;
    $tanggal = $_POST['tanggal'];
    $nim = $_POST['nim'];
-   $tanggal=date('Y-m-d');
+   $tanggals=date('Y-m-d');
    if ($last_progg > $progg) {
       echo "<script>alert('Progress tidak boleh berkurang');window.location = 'log_book.php';</script>";
    } else if ($progg > 100) {
@@ -121,7 +121,7 @@ if (isset($_POST['tambah_logbook'])) {
       echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
    }
    if ($progg == 100) {
-      mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggal',0)");
+      mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggals',0)");
    }
 }
 
@@ -140,4 +140,38 @@ if (isset($_POST['upload_laporan'])) {
    move_uploaded_file($file_loc, $folder . $file);
    $query = mysqli_query($koneksi, "UPDATE laporan_hasil set file_laporan='$file', tanggal_laporan='$tanggal', status='1' where id_laporan='$id_laporan'");
    echo "<script>alert('Berhasil Upload Laporan Hasil!'); window.location = 'laporan_hasil.php'</script>";
+}
+
+if (isset($_POST['edit_logbook'])) {
+
+   $id_detail = $_POST['id_detail'];
+   $id_log = $_POST['id_log'];
+   $id_penelitian = $_POST['id_penelitian'];
+   $nim = $_POST['nim'];
+   $kegiatan = $_POST['kegiatan'];
+   $tanggal = $_POST['tanggal'];
+   $last_prog = $_POST['last_prog'];
+   $prog = $_POST['prog'];
+   $last_progg = (int)$last_prog;
+   $progg = (int)$prog;
+   $tanggals=date('Y-m-d');
+   if ($progg > 100) {
+      echo "<script>alert('Progress maksimal 100%');window.location = 'log_book.php';</script>";
+   } else {
+      $result = mysqli_query($koneksi, "UPDATE logbook_detail set isi_logbook='$kegiatan', tanggal_pelaksanaan='$tanggal', progress='$prog' where id_log_detail='$id_detail'");
+      echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
+   }
+   if ($progg == 100) {
+      $q=mysqli_query($koneksi, "SELECT * from laporan_hasil where id_penelitian='$id_penelitian'");
+
+      if(mysqli_num_rows($q)>0)
+      {
+         echo "<script>window.location = 'log_book.php';</script>";
+      }
+      else
+      {
+            mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggals',0)");
+      }
+   }
+
 }

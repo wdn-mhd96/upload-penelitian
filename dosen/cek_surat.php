@@ -27,24 +27,25 @@
                 <thead>
                   <tr>
                     <th>No.</th>
+                    <th>Tanggal</th>
                     <th>Judul Penelitian</th>
                     <th>Nama Dosen</th>
                     <th>Lampiran</th>
                     <!--  <th>KRS</th> -->
-                    <th>Tanggal</th>
                     <th>Status</th>
                     <th>Catatan</th>
+                    <th>Perbaikan Proposal</th>
                   </tr>
                 </thead>
                 <?php while ($row = mysqli_fetch_array($query)) { ?>
                   <tbody>
                     <tr>
                       <td><?php echo $no++; ?></td>
+                      <td><?php echo $row['tanggal']; ?></td>
                       <td><?php echo $row['judul']; ?></td>
                       <td><?php echo $row['nama']; ?></td>
                       <td><a href="../uploads/<?php echo $row['file']; ?>" target="__blank"><?php echo $row['file']; ?></a></td>
                       <!-- <td><?php echo $row['krs']; ?></td> -->
-                      <td><?php echo $row['tanggal']; ?></td>
                       <td><?php
                           if ($row['status'] == 'Sudah Diajukan') {
                             echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
@@ -63,6 +64,7 @@
                           }
                           ?></td>
                       <td><?= $row['krs']; ?></td>
+                      
                     </tr>
                   </tbody>
                 <?php } ?>
