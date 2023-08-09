@@ -34,7 +34,6 @@
                     <!--  <th>KRS</th> -->
                     <th>Status</th>
                     <th>Catatan</th>
-                    <th>Perbaikan Proposal</th>
                   </tr>
                 </thead>
                 <?php while ($row = mysqli_fetch_array($query)) { ?>

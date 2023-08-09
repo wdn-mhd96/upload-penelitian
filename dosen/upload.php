@@ -45,9 +45,14 @@ if (isset($_POST['revisi'])) {
    $res = mysqli_fetch_array($q);
    unlink("../uploads/" . $res['file']);
    move_uploaded_file($file_loc, $folder . $file);
-
+   if($res['status']=="Disetujui")
+   {
+   $result = mysqli_query($koneksi, "UPDATE surat_mhs set judul='$nama', nim='$nim', tanggal='$tanggal', file='$file', krs='Berhasil Revisi' where Id='$id'");
+   }
+   else
+   {
    $result = mysqli_query($koneksi, "UPDATE surat_mhs set judul='$nama', nim='$nim', status='$status', tanggal='$tanggal', file='$file', krs='$krs' where Id='$id'");
-
+   }
    // Show message when user added
    echo "<script>alert('Data Berhasil di Revisi!'); window.location = 'cek_surat.php'</script>";
 }
