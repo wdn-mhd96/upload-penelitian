@@ -11,14 +11,14 @@
       include "../../koneksi/koneksi.php";
       $no = 1;
       $gg = $_SESSION['username'];
-      $sql = "SELECT * from laporan2 where nim='$gg' and jenis_laporan='penelitian'";
+      $sql = "SELECT * from laporan2 where nim='$gg' and jenis_laporan='pengmas'";
       $query = mysqli_query($koneksi, $sql) or die(mysqli_error());
       // $ada=mysqli_query($koneksi, $sql) or die(mysqli_error());                                                            
       ?>
       <div class="card mb-4">
         <div class="card text-center">
           <div class="card-header">
-            Daftar Laporan Hasil Penelitian
+            Daftar Laporan Hasil Pengabdian Masyarakat
           </div>
           <div class="card-body">
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
@@ -26,7 +26,6 @@
                 <tr>
                   <th>No.</th>
                   <th>Judul Laporan</th>
-                  <th>Jenis Laporan</th>
                   <th>Nama Dosen</th>
                   <th>Lampiran</th>
                   <th>Tanggal</th>
@@ -44,7 +43,6 @@
                     ?>
                       <td><?php echo $row['judul']; ?></td>
                     <?php } ?>
-                    <td><?php echo $row['jenis_laporan']; ?></td>
                     <td><?php echo $row['nama']; ?></td>
                     <?php if ($row['file_laporan'] == '') { ?>
                       <td>Lampiran Belum di Upload</td>

@@ -101,7 +101,7 @@ if ($_SESSION['level'] != "dosen") {
                             <div class="sb-nav-link-icon"><i class="fas fa-pen"></i></div>
                             Perbaikan Proposal
                         </a></li>
-                        <li class="nav-item"><a class="nav-link" href="laporan_hasil.php">
+                        <li class="nav-item"><a class="nav-link" href="laporan_hasil_pengmas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Laporan Hasil Pengmas
                         </a></li>
