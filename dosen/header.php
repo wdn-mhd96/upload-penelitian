@@ -24,9 +24,9 @@ if ($_SESSION['level'] != "dosen") {
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard | Dosen</title>
-    <link href="../css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="../css/styles.css" rel="stylesheet" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <style>
     </style>
 </head>
@@ -73,7 +73,7 @@ if ($_SESSION['level'] != "dosen") {
                         <?php
                         include '../../koneksi/koneksi.php';
                         $nim=$_SESSION['username'];
-                        $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status='Disetujui'");
+                        $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status in('Disetujui','Disetujui dengan Revisi')");
                         if(mysqli_num_rows($query)>0) { ?>
                         <li class="nav-item"><a class="nav-link" href="revisi.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-pen"></i></div>

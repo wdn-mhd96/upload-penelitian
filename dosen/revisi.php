@@ -19,7 +19,7 @@
                              <select name="pilih" id="" class="form-control w-25">
                               <?php 
                               $nim=$_SESSION['username'];
-                              $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status='Disetujui'");
+                              $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status='Disetujui dengan Revisi'");
                               while($row = mysqli_fetch_array($query)) { ?> 
                               <option value=<?= $row['Id'] ?>><?= $row['judul'] ?></option>
                               <?php } ?>
@@ -32,9 +32,15 @@
                               if(isset($_POST['revisi_judul']))
                               {
                                 $judul=$_POST['pilih'];
+                                if($judul=="")
+                                {
+                                  echo "Tidak ada Penelitian dipilih";
+                                }
+                                else
+                                {
                                 $q=mysqli_query($koneksi, "SELECT * from surat_mhs where Id=$judul");
                                 $row=mysqli_fetch_array($q);
-
+                                }
                               }
                             ?>
                                 <form action="upload.php" method="post" enctype="multipart/form-data">

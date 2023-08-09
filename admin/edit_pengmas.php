@@ -41,10 +41,14 @@
                   <hr>
                   <div class="form-group">
                     <label for="status">Edit Status</label>
-                    <select class="form-control" id="status" name="status">
-                      <option value="Sedang Diproses">Sedang Diproses</option>
-                      <option value="Berkas Tidak Lengkap">Berkas Tidak Lengkap</option>
-                      <option value="Disetujui">Disetujui</option>
+                    <select name="status" class="form-control">
+                  <?php $q=mysqli_query($koneksi, "SELECT * from status_berkas"); 
+                      while($r=mysqli_fetch_array($q)) {
+                        if($d['status_pengmas']==$r['status_berkas']) {?>
+                      <option value="<?= $r['status_berkas'] ?>" selected><?= $r['status_berkas'] ?></option>
+                      <?php } else{ ?>
+                      <option value="<?= $r['status_berkas'] ?>"><?= $r['status_berkas'] ?></option>
+                        <?php } } ?>
                     </select>
                   </div>
                   <div class="form-group">

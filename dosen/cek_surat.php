@@ -46,17 +46,17 @@
                       <td><a href="../uploads/<?php echo $row['file']; ?>" target="__blank"><?php echo $row['file']; ?></a></td>
                       <!-- <td><?php echo $row['krs']; ?></td> -->
                       <td><?php
-                          if ($row['status'] == 'Sudah Diajukan') {
+                          if ($row['status'] == 'Pengajuan baru') {
                             echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
                           }
                           if ($row['status'] == 'Sedang Diproses') {
                             echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
                           }
-                          if ($row['status'] == 'Disetujui') {
+                          if ($row['status'] == 'Disetujui' or $row['status'] == 'Disetujui dengan Revisi') {
                             echo "<span class='badge badge-info'>Disetujui</span>";
                           }
-                          if ($row['status'] == 'Berkas Tidak Lengkap') {
-                            echo "<span class='badge badge-danger'>berkas tidak lengkap</span><a href=revisi.php?id=" . $row['Id'] . "><spanclass='badge badge-success'>Revisi</spanclass=></a>";
+                          if ($row['status'] == 'Berkas tidak lengkap') {
+                            echo "<span class='badge badge-danger'>berkas tidak lengkap</span><br><a href=revisi.php?id=" . $row['Id'] . "><spanclass='badge badge-success'>Revisi</spanclass=></a>";
                           }
                           if ($row['status'] == 'Revisi') {
                             echo "<span class='badge badge-success'>Proses Revisi</span>";

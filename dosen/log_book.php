@@ -17,7 +17,7 @@
       ?>
       <form action="" method="post">
         <div class="form-row ml-1">
-          <select name="judul" id="" class="form-control w-25 mr-3" id="judul">
+          <select name="judul" id="name" class="form-control w-25 mr-3" id="judul">
             <?php while ($a = mysqli_fetch_array($query)) { ?>
               <option value="<?= $a['Id'] ?>"><?= $a['judul']; ?></option>
             <?php } ?>
@@ -124,5 +124,6 @@
       ]
     });
   });
+  document.getElementById('name').value = "<?php echo $id;?>";
 </script>
 <?php include_once "footer.php"; ?>

@@ -65,6 +65,10 @@ if ($_SESSION['level'] != "lppm") {
                                 ><div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
                                 Data Pengmas</a
                             >
+                            <a class="nav-link" href="cek_logbook.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Cek Logbook
+                            </a>
                             <a class="nav-link" href="laporan_hasil.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Data Laporan Hasil

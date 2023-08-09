@@ -40,6 +40,9 @@
     <script>
         $(document).ready(function() {
             $('#pengmas').DataTable({
+                "columnDefs": [
+             { "width": "12%", "targets": 7 }
+             ],
                 "processing": true,
                 "serverSide": true,
                 "ajax": "data_pengmas.php",

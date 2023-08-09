@@ -8,7 +8,7 @@ if (isset($_POST['upload'])) {
 
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
-   $status = 'Sudah Diajukan';
+   $status = 'Pengajuan baru';
    $tanggal = date('l, d-m-Y');
 
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
@@ -64,7 +64,7 @@ if (isset($_POST['upload_pengmas'])) {
 
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
-   $status = 'Sudah Diajukan';
+   $status = 'Pengajuan baru';
    $tanggal = date('l, d-m-Y');
    $krs = 'Pengmas Baru';
 
