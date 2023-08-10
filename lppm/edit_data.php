@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
         $q = mysqli_query($koneksi, "INSERT into logbook_header values ('', '$id', '$nim','$tanggal' )");
     }
     $a = mysqli_query($koneksi, "UPDATE surat_mhs SET judul='$nama', nim='$nim', status='$status', krs ='$krs' where Id='$id'");
-    echo "<script>alert('berhasil'); window.location = 'suratku.php';</script>";
+    echo "<script>alert('berhasil'); window.location = 'suratlpm.php';</script>";
     // mengalihkan halaman kembali ke index.php
 }
 
