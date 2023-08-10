@@ -30,6 +30,7 @@
                   <div class="form-group">
                     <label for="nim">Nama Dosen</label>
                     <input type="hidden" class="form-control" id="nim" value="<?php echo $d['nim']; ?>" name="nim" required>
+                    <input type="hidden" class="form-control" id="nim" value="<?php echo $d['tanggal_pengmas']; ?>" name="tanggal" required>
                     <input type="text" class="form-control" id="nim" value="<?php echo $d['nama']; ?>" disabled>
                   </div>
                   <hr>

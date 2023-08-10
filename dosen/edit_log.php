@@ -2,7 +2,7 @@
     include "../../koneksi/koneksi.php";
 
         $id = $_GET['id'];
-        $query = mysqli_query($koneksi, "SELECT * from logbook2 where id_log_detail='$id'");
+        $query = mysqli_query($koneksi, "SELECT logbook2.*, surat_mhs.tanggal from logbook2 inner join surat_mhs on logbook2.id_penelitian = surat_mhs.Id where id_log_detail='$id'");
         $row = mysqli_fetch_array($query);
 ?>
             <div id="layoutSidenav_content">
@@ -15,14 +15,15 @@
                                     <label for="judul">Kegiatan</label>
                                     <input type="hidden" class="form-control"  value='<?= $_GET['id']?>' name="id_detail" required>
                                     <input type="hidden" class="form-control"  value='<?= $row['id_logbook']?>' name="id_log" required>
-                                    <input type="text" class="form-control"  value='<?= $row['id_penelitian']?>' name="id_penelitian" required>
+                                    <input type="hidden" class="form-control"  value='<?= $row['id_penelitian']?>' name="id_penelitian" required>
                                     <input type="hidden" class="form-control"  value='<?= $_SESSION['username']?>' name="nim" required>
+                                    <input type="hidden" class="form-control"  value='<?= $row['tanggal']?>' name="nim" required>
                                     <input type="text" class="form-control" id="nama" placeholder="Kegiatan" name="kegiatan" value='<?= $row['isi_logbook']?>' required>
                                   </div>
-                                  <div class="form-group">
+                                  <!-- <div class="form-group">
                                     <label for="nama">Tanggal</label>
                                     <input type="date" class="form-control w-25" id="nim" name="tanggal" required value="<?= $row['tanggal_pelaksanaan']?>">
-                                  </div>
+                                  </div> -->
 
                                   <div class="form-group">
                                     <label for="judul">Progress</label>

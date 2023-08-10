@@ -14,6 +14,7 @@
                     </p>
                 </div>
             </div>
+            <div class="table-responsive">
             <table id="pengmas" class="table table-border" style="width:100%">
                 <thead class="table table-dark">
                     <tr>
@@ -21,13 +22,14 @@
                         <th>Nama</th>
                         <th>Judul</th>
                         <th>File</th>
-                        <th>Tanggal</th>
+                        <th>Tahun Ajaran</th>
                         <th>Status</th>
                         <th>Catatan</th>
                         <th>action</th>
                     </tr>
                 </thead>
             </table>
+</div>
 
         </div>
     </main>

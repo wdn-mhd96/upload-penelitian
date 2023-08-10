@@ -22,12 +22,12 @@
             </div>
             <div class="card-body">
             <h3 class="float-left"><span><a  class='btn btn-primary' href='tambah_surat.php'> + Ajukan Proposal penelitian</a></span></h3>  
-            
-              <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
+            <div class="table-responsive">
+              <table class="table table-bordered table-responsive" id="datadosen" cellspacing="0">
                 <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Tanggal</th>
+                    <th>Tahun Ajaran</th>
                     <th>Judul Penelitian</th>
                     <th>Nama Dosen</th>
                     <th>Lampiran</th>
@@ -59,7 +59,7 @@
                             echo "<span class='badge badge-danger'>berkas tidak lengkap</span><br><a href=revisi.php?id=" . $row['Id'] . "><spanclass='badge badge-success'>Revisi</spanclass=></a>";
                           }
                           if ($row['status'] == 'Revisi') {
-                            echo "<span class='badge badge-success'>Proses Revisi</span>";
+                            echo "<span class='badge badge-success'>Proses Revisi</span><br><a href=revisi.php?id=" . $row['Id'] . "><spanclass='badge badge-success'>Revisi</spanclass=></a>";
                           }
                           ?></td>
                       <td><?= $row['krs']; ?></td>
@@ -68,7 +68,7 @@
                   </tbody>
                 <?php } ?>
               </table>
-
+              </div>
             </div>
           </div>
         </div>

@@ -22,6 +22,7 @@
           </div>
           <div class="card-body">
             <h3 class="float-left"><span><a class='btn btn-primary' href='tambah_pengmas.php'>Tambah Data Pengmas</a></span></h3>
+            <div class="table-responsive">
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -30,7 +31,7 @@
                   <th>Nama Dosen</th>
                   <th>Lampiran</th>
                   <!--  <th>KRS</th> -->
-                  <th>Tanggal</th>
+                  <th>Tahun Ajaran</th>
                   <th>Status</th>
                   <th>Catatan</th>
                 </tr>
@@ -45,7 +46,7 @@
                     <!-- <td><?php echo $row['krs']; ?></td> -->
                     <td><?php echo $row['tanggal_pengmas']; ?></td>
                     <td><?php
-                        if ($row['status_pengmas'] == 'Sudah Diajukan') {
+                        if ($row['status_pengmas'] == 'Pengajuan baru') {
                           echo "<span class='badge badge-warning'>Berkas Sedang Di Proses</span>";
                         }
                         if ($row['status_pengmas'] == 'Sedang Diproses') {
@@ -66,7 +67,7 @@
                 </tbody>
               <?php } ?>
             </table>
-
+            </div>
 
           </div>
         </div>

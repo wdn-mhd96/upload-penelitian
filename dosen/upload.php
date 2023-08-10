@@ -9,7 +9,7 @@ if (isset($_POST['upload'])) {
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Pengajuan baru';
-   $tanggal = date('l, d-m-Y');
+   $tanggal = $_POST['tanggal'];
 
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
    $file_loc = $_FILES['file']['tmp_name'];
@@ -65,7 +65,7 @@ if (isset($_POST['upload_pengmas'])) {
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Pengajuan baru';
-   $tanggal = date('l, d-m-Y');
+   $tanggal = $_POST['tanggal'];
    $krs = 'Pengmas Baru';
 
    $folder = "../uploads/pengmas/";
@@ -114,7 +114,7 @@ if (isset($_POST['tambah_logbook'])) {
    $prog = $_POST['prog'];
    $last_progg = (int)$last_prog;
    $progg = (int)$prog;
-   $tanggal = $_POST['tanggal'];
+   // $tanggal = $_POST['tanggal'];
    $nim = $_POST['nim'];
    $tanggals=date('Y-m-d');
    if ($last_progg > $progg) {
@@ -122,7 +122,7 @@ if (isset($_POST['tambah_logbook'])) {
    } else if ($progg > 100) {
       echo "<script>alert('Progress maksimal 100%');window.location = 'log_book.php';</script>";
    } else {
-      $result = mysqli_query($koneksi, "INSERT INTO logbook_detail VALUES('','$id_log','$kegiatan', '$tanggal', '$prog')");
+      $result = mysqli_query($koneksi, "INSERT INTO logbook_detail VALUES('','$id_log','$kegiatan', '', '$prog')");
       echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
    }
    if ($progg == 100) {
@@ -154,7 +154,7 @@ if (isset($_POST['edit_logbook'])) {
    $id_penelitian = $_POST['id_penelitian'];
    $nim = $_POST['nim'];
    $kegiatan = $_POST['kegiatan'];
-   $tanggal = $_POST['tanggal'];
+   // $tanggal = $_POST['tanggal'];
    $last_prog = $_POST['last_prog'];
    $prog = $_POST['prog'];
    $last_progg = (int)$last_prog;
@@ -163,7 +163,7 @@ if (isset($_POST['edit_logbook'])) {
    if ($progg > 100) {
       echo "<script>alert('Progress maksimal 100%');window.location = 'log_book.php';</script>";
    } else {
-      $result = mysqli_query($koneksi, "UPDATE logbook_detail set isi_logbook='$kegiatan', tanggal_pelaksanaan='$tanggal', progress='$prog' where id_log_detail='$id_detail'");
+      $result = mysqli_query($koneksi, "UPDATE logbook_detail set isi_logbook='$kegiatan', progress='$prog' where id_log_detail='$id_detail'");
       echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
    }
    if ($progg == 100) {

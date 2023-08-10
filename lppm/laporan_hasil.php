@@ -36,6 +36,7 @@
             Daftar Laporan Hasil <?= $jenis ?>
           </div>
           <div class="card-body">
+          <div class="table-responsive">
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -83,7 +84,7 @@
                 </tbody>
               <?php } } ?>
             </table>
-
+            </div>
 
           </div>
         </div>

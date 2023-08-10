@@ -58,19 +58,19 @@
           </div>
 
           <div class="card-body">
-
+            <div class="table-responsive">
             <table class="table table-bordered" id="datalogbook" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>No.</th>
                   <th>kode Dosen</th>
                   <th>Kegiatan</th>
-                  <th>tanggal</th>
                   <th>Progress</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
             </table>
+            </div>
           </div>
         </div>
       </div>
@@ -111,9 +111,6 @@
         },
         {
           "data": 'isi_logbook'
-        },
-        {
-          "data": 'tanggal'
         },
         {
           "data": 'progress'

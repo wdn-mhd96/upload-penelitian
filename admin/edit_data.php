@@ -30,7 +30,7 @@ if (isset($_POST['update_pengmas'])) {
     $nim = $_POST['nim'];
     $status = $_POST['status'];
     $krs = $_POST['krs'];
-    $tanggal = date('l, d-m-Y');
+    $tanggal = $_POST['tanggal'];
     // update data ke database
     $a = mysqli_query($koneksi, "UPDATE tpengmas SET judul_pengmas='$nama', nim='$nim', status_pengmas='$status', catatan ='$krs' where id_pengmas='$id'");
     if ($a) {

@@ -21,6 +21,7 @@
             Daftar Laporan Hasil Pengabdian Masyarakat
           </div>
           <div class="card-body">
+          <div class="table-responsive">
             <table class="table table-bordered" id="datadosesn" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -28,7 +29,7 @@
                   <th>Judul Laporan</th>
                   <th>Nama Dosen</th>
                   <th>Lampiran</th>
-                  <th>Tanggal</th>
+                  <th>Tahun Ajaran</th>
                   <th>Status</th>
                   <th>Aksi</th>
                 </tr>
@@ -61,7 +62,7 @@
                 </tbody>
               <?php } ?>
             </table>
-
+            </div>
 
           </div>
         </div>

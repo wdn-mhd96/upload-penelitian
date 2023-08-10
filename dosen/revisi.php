@@ -54,6 +54,23 @@
                                     <input type="text" class="form-control" id="nim" value="<?= $_SESSION['username']; ?>" name="nim" readonly required>
                                   </div>
                                   <div class="form-group">
+                                    <label for="nama">Tahun Ajaran</label>
+                                    <select name="tanggal" id="" class="form-control">
+                                    <?php
+                                    for ($x = 2000; $x <= date('Y'); $x++) {
+                                        $b=$x+1;
+                                        if($x==$row['tanggal'])
+                                        {
+                                          echo "<option value='".$x."/".$b."' selected>".$x."/".$b."</option>";
+                                        }
+                                        else {
+                                      echo "<option value='".$x."/".$b."'>".$x."/".$b."</option>";
+                                        }
+                                    }
+                                    ?>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
                                     <label for="exampleFormControlFile1">Upload Berkas Penelitian</label>
                                     <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1" required> 
                                 </div>
