@@ -79,7 +79,6 @@
                   <th>No.</th>
                   <th>kode Dosen</th>
                   <th>Kegiatan</th>
-                  <th>tanggal</th>
                   <th>Progress</th>
                 </tr>
               </thead>
@@ -125,9 +124,6 @@
         },
         {
           "data": 'isi_logbook'
-        },
-        {
-          "data": 'tanggal'
         },
         {
           "data": 'progress'
