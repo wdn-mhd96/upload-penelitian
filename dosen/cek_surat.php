@@ -43,7 +43,7 @@
                       <td><?php echo $row['tanggal']; ?></td>
                       <td><?php echo $row['judul']; ?></td>
                       <td><?php echo $row['nama']; ?></td>
-                      <td><a href="../uploads/<?php echo $row['file']; ?>" target="__blank"><?php echo $row['file']; ?></a></td>
+                      <td><?php echo $row['file']; ?></td>
                       <!-- <td><?php echo $row['krs']; ?></td> -->
                       <td><?php
                           if ($row['status'] == 'Pengajuan baru') {

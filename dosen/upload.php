@@ -116,7 +116,7 @@ if (isset($_POST['tambah_logbook'])) {
    $progg = (int)$prog;
    // $tanggal = $_POST['tanggal'];
    $nim = $_POST['nim'];
-   $tanggals=date('Y-m-d');
+   $tanggals=$_POST['tanggal'];
    if ($last_progg > $progg) {
       echo "<script>alert('Progress tidak boleh berkurang');window.location = 'log_book.php';</script>";
    } else if ($progg > 100) {
@@ -154,12 +154,11 @@ if (isset($_POST['edit_logbook'])) {
    $id_penelitian = $_POST['id_penelitian'];
    $nim = $_POST['nim'];
    $kegiatan = $_POST['kegiatan'];
-   // $tanggal = $_POST['tanggal'];
+   $tanggal = $_POST['tanggal'];
    $last_prog = $_POST['last_prog'];
    $prog = $_POST['prog'];
    $last_progg = (int)$last_prog;
    $progg = (int)$prog;
-   $tanggals=date('Y-m-d');
    if ($progg > 100) {
       echo "<script>alert('Progress maksimal 100%');window.location = 'log_book.php';</script>";
    } else {
@@ -175,7 +174,7 @@ if (isset($_POST['edit_logbook'])) {
       }
       else
       {
-            mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggals',0)");
+            mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggal',0)");
       }
    }
 

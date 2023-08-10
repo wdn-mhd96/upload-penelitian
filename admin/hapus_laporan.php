@@ -15,11 +15,11 @@ $idpel=$row['id_penelitian'];
 mysqli_query($koneksi, "DELETE from laporan_hasil where id_laporan = '$id_lap'");
 if($row['jenis_laporan']=="pengmas")
 {
-mysqli_query($koneksi, "Update tpengmas set status_pengmas = 'Sudah Diajukan' where id_pengmas='$idpel'");
+mysqli_query($koneksi, "Update tpengmas set status_pengmas = 'Revisi' where id_pengmas='$idpel'");
 }
 else
 {
-    mysqli_query($koneksi, "Update surat_mhs set status = 'Sudah Diajukan' where Id='$idpel'");
+    mysqli_query($koneksi, "Update surat_mhs set status = 'Revisi' where Id='$idpel'");
 
 }
 echo "<script>window.location = 'laporan_hasil.php';</script>";
