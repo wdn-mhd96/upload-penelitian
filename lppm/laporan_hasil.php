@@ -44,7 +44,7 @@
                   <th>Judul Laporan</th>
                   <th>Nama Dosen</th>
                   <th>Lampiran</th>
-                  <th>Tanggal</th>
+                  <th>Tahun Ajaran</th>
                   <th>Status</th>
                   <th>Aksi</th>
                 </tr>

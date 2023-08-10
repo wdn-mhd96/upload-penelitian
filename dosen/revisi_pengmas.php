@@ -83,8 +83,7 @@
                                   <hr>
                                   <input type="submit" class="btn btn-primary" name="revisi_pengmas" value="Kirim">
                                 </form>
-                            </div>
-                        </div>
+                           
 </div>
 </main>
 <?php include_once "footer.php"; ?>

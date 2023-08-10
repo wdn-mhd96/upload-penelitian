@@ -34,8 +34,7 @@
                                   <hr>
                                   <input type="submit" class="btn btn-primary" name="edit_logbook" value="Update">
                                 </form>
-                            </div>
-                        </div>
+                            
 </div>
                 </main>
 <?php include_once "footer.php"; ?>

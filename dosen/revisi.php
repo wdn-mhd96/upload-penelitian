@@ -1,9 +1,10 @@
 <?php include_once "header.php"; ?>
 <div id="layoutSidenav_content">
 <main>
+  <div class="card">
     <div class="card-header">
     <i class="fas fa-table mr-1"></i>Revisi Penelitian</div>
-                            <div class="card-body">
+                  <div class="card-body">
                          <?php 
                           include "../../koneksi/koneksi.php";
                             if(isset($_GET['id']))
@@ -81,8 +82,9 @@
                                   <hr>
                                   <input type="submit" class="btn btn-primary" name="revisi" value="Kirim">
                                 </form>
-                            </div>
-                        </div>
-</div>
+                            
+                  
+    </div>
+  </div>
 </main>
 <?php include_once "footer.php"; ?>

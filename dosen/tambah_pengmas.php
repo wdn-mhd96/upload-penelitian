@@ -31,8 +31,7 @@
                                   <hr>
                                   <input type="submit" class="btn btn-primary" name="upload_pengmas" value="Kirim">
                                 </form>
-                            </div>
-                        </div>
+                         
 </div>
 </main>
 <?php include_once "footer.php"; ?>

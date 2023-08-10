@@ -31,8 +31,8 @@
                                   <hr>
                                   <input type="submit" class="btn btn-primary" name="upload" value="Kirim">
                                 </form>
-                            </div>
-                        </div>
+                           
+                       
 </div>
 </main>
 <?php include_once "footer.php"; ?>

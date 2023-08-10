@@ -33,8 +33,7 @@
                                   <hr>
                                   <input type="submit" class="btn btn-primary" name="tambah_logbook" value="Kirim">
                                 </form>
-                            </div>
-                        </div>
+                            
 </div>
                 </main>
 <?php include_once "footer.php"; ?>
