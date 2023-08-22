@@ -15,6 +15,7 @@
                 </div>
             </div>
             <div class="table-responsive">
+                <small>
             <table id="example" class="table table-border" style="width:100%">
                 <thead class="table table-dark">
                     <tr>
@@ -29,6 +30,7 @@
                     </tr>
                 </thead>
             </table>
+</small>
             </div>
 
         </div>

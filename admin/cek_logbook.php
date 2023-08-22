@@ -66,10 +66,6 @@
           <div class="card-header">
             <?php echo $c;  ?>
           </div>
-          <div class="col-md-4">
-            <?php echo $a; ?>
-           
-          </div>
 
           <div class="card-body">
           <div class="table-responsive">

@@ -2,8 +2,12 @@
     include "../../koneksi/koneksi.php";
 
         $id = $_GET['id'];
-        $query = mysqli_query($koneksi, "SELECT logbook2.*, surat_mhs.tanggal from logbook2 inner join surat_mhs on logbook2.id_penelitian = surat_mhs.id where id_logbook='$id' order by progress DESC");
+        $idp=$_GET['id_p'];
+        $q = mysqli_query($koneksi, "SELECT * from surat_mhs where Id='$idp'");
+        $query = mysqli_query($koneksi, "SELECT * from logbook2 where id_logbook='$id' order by progress DESC");
         $row = mysqli_fetch_array($query);
+        $r = mysqli_fetch_array($q);
+
 ?>
             <div id="layoutSidenav_content">
                 <main>
@@ -16,7 +20,7 @@
                                     <input type="hidden" class="form-control"  value='<?= $_GET['id']?>' name="id_log" required>
                                     <input type="hidden" class="form-control"  value='<?= $_GET['id_p']?>' name="id_penelitian" required>
                                     <input type="hidden" class="form-control"  value='<?= $_SESSION['username']?>' name="nim" required>
-                                    <input type="hidden" class="form-control"  value='<?= $row['tanggal']?>' name="tanggal" required>
+                                    <input type="hidden" class="form-control"  value='<?= $r['tanggal']?>' name="tanggal" required>
                                     <input type="text" class="form-control" id="nama" placeholder="Kegiatan" name="kegiatan" required>
                                   </div>
                                   <!-- <div class="form-group">
@@ -26,12 +30,12 @@
 
                                   <div class="form-group">
                                     <label for="judul">Progress</label>
-                                    <input type="hidden" class="form-control"  value='<?= $row['progress']?>' name="last_prog">
+                                    <input type="text" class="form-control"  value='<?= $row['progress']?>' name="last_prog">
                                     <input type="number" class="form-control" id="nama" placeholder="Progress" name="prog" required>
                                   </div>
                                   
                                   <hr>
-                                  <input type="submit" class="btn btn-primary" name="tambah_logbook" value="Kirim">
+                                  <input type="submit" class="btn btn-primary" name="utambah_logbook" value="Kirim">
                                 </form>
                             
 </div>

@@ -28,6 +28,24 @@ if ($_SESSION['level'] != "dosen") {
     <link href="../css/styles.css" rel="stylesheet" />
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <style>
+        .drop {
+            position:relative;
+        }
+        .drop:after {
+            content:"";
+            height:5px;
+            width:5px;
+            border-top:solid 5px gray;
+            border-right:solid 5px transparent;
+            border-left:solid 5px transparent;
+            position:absolute;
+            left:180px;
+        }
+        .drop:hover:after {
+            border-top:solid 5px white;
+        }
+        
+       
     </style>
 </head>
 
@@ -64,10 +82,10 @@ if ($_SESSION['level'] != "dosen") {
                         </a>
                         <li class="nav-item">
                         <a href="#submenu1" class="nav-link collapsed drop" data-toggle="collapse" data-target="#submenu1"><div class="sb-nav-link-icon"><i class="fas fa-microscope"></i></div>Penelitian</a>
+                        <small>
                         <div class="collapse" id="submenu1" aria-expanded="false">
-                        <ul class="flex-column pl-5">
+                        <ul class="flex-column pl-3 nav">
                         <li class="nav-item"><a class="nav-link" href="cek_surat.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
                             Proposal Penelitian 
                         </a></li>
                         <?php
@@ -76,33 +94,29 @@ if ($_SESSION['level'] != "dosen") {
                         $query = mysqli_query($koneksi, "SELECT * from surat_mhs where nim='$nim' and status in('Disetujui','Disetujui dengan Revisi')");
                         if(mysqli_num_rows($query)>0) { ?>
                         <li class="nav-item"><a class="nav-link" href="revisi.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-pen"></i></div>
                             Perbaikan Proposal
                         </a></li>
                         <li class="nav-item"><a class="nav-link" href="log_book.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Log Book
                         </a></li>
                         <?php }?>
                         <li class="nav-item"><a class="nav-link" href="laporan_hasil.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Laporan Hasil Penelitian
                         </a></li>
                         </ul>
                         </div>
-                        <a href="#submenu2" class="nav-link collapsed" data-toggle="collapse" data-target="#submenu2"><div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>Pengabdian Masyarakat</a>
+                        </small>
+                        <a href="#submenu2" class="nav-link collapsed drop" data-toggle="collapse" data-target="#submenu2"><div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>Pengabdian Masyarakat</a>
+                        <small>
                         <div class="collapse" id="submenu2" aria-expanded="false">
-                        <ul class="flex-column pl-4">             
+                        <ul class="flex-column pl-3 nav">             
                         <li class="nav-item"><a class="nav-link" href="cek_pengmas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-heart"></i></div>
                             Proposal Pengmas
                         </a></li>
                         <li class="nav-item"><a class="nav-link" href="revisi_pengmas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-pen"></i></div>
                             Perbaikan Proposal
                         </a></li>
                         <li class="nav-item"><a class="nav-link" href="laporan_hasil_pengmas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Laporan Hasil Pengmas
                         </a></li>
                         </ul>
@@ -110,6 +124,7 @@ if ($_SESSION['level'] != "dosen") {
                         </ul>
 
                     </div>
+                    </small>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Masuk Sebagai :</div>

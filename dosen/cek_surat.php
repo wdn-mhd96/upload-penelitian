@@ -23,7 +23,8 @@
             <div class="card-body">
             <h3 class="float-left"><span><a  class='btn btn-primary' href='tambah_surat.php'> + Ajukan Proposal penelitian</a></span></h3>  
             <div class="table-responsive">
-              <table class="table table-bordered table-responsive" id="datadosen" cellspacing="0">
+              <small>
+              <table class="table table-bordered" id="datadosen" cellspacing="0">
                 <thead>
                   <tr>
                     <th>No.</th>
@@ -68,6 +69,7 @@
                   </tbody>
                 <?php } ?>
               </table>
+                        </small>
               </div>
             </div>
           </div>

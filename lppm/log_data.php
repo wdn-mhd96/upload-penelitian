@@ -14,7 +14,7 @@ $columns = array(
     array(  'db' => 'nim', 'dt' => 'nim' ),
     array(  'db' => 'isi_logbook',  'dt' => 'isi_logbook' ),
     array(  'db' => 'tanggal_pelaksanaan',   'dt' => 'tanggal' ),
-    array(  'db' => 'progress',  'dt' => 'progress' ),
+    array(  'db' => 'progress',  'dt' => 'progress', 'formatter' => function($d, $row) { return $d.' %'; } ),
     // array(  'db' => 'id_log_detail',
     //         'dt' => 'aksi',
 

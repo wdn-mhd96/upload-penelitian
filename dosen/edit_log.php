@@ -17,7 +17,7 @@
                                     <input type="hidden" class="form-control"  value='<?= $row['id_logbook']?>' name="id_log" required>
                                     <input type="hidden" class="form-control"  value='<?= $row['id_penelitian']?>' name="id_penelitian" required>
                                     <input type="hidden" class="form-control"  value='<?= $_SESSION['username']?>' name="nim" required>
-                                    <input type="text" class="form-control"  value='<?= $row['tanggal']?>' name="tanggal" required>
+                                    <input type="hidden" class="form-control"  value='<?= $row['tanggal']?>' name="tanggal" required>
                                     <input type="text" class="form-control" id="nama" placeholder="Kegiatan" name="kegiatan" value='<?= $row['isi_logbook']?>' required>
                                   </div>
                                   <!-- <div class="form-group">

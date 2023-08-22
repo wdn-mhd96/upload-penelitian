@@ -114,9 +114,8 @@ if (isset($_POST['tambah_logbook'])) {
    $prog = $_POST['prog'];
    $last_progg = (int)$last_prog;
    $progg = (int)$prog;
-   // $tanggal = $_POST['tanggal'];
+   $tanggal = $_POST['tanggal'];
    $nim = $_POST['nim'];
-   $tanggals=$_POST['tanggal'];
    if ($last_progg > $progg) {
       echo "<script>alert('Progress tidak boleh berkurang');window.location = 'log_book.php';</script>";
    } else if ($progg > 100) {
@@ -126,7 +125,10 @@ if (isset($_POST['tambah_logbook'])) {
       echo "<script>alert('Berhasil tambah Logbook!'); window.location = 'log_book.php'</script>";
    }
    if ($progg == 100) {
-      mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggals',0)");
+      if($last_progg != 100)
+      {
+         mysqli_query($koneksi, "INSERT into laporan_hasil values ('', '$id_penelitian','$nim', 'penelitian','','$tanggal',0)");
+      }
    }
 }
 
@@ -134,7 +136,6 @@ if (isset($_POST['tambah_logbook'])) {
 //upload laporan hasil
 if (isset($_POST['upload_laporan'])) {
    $id_laporan = $_POST['id_laporan'];
-   $tanggal = date('Y-m-d');
    $folder = "../uploads/laporan/";
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
    $file_loc = $_FILES['file']['tmp_name'];
@@ -143,7 +144,7 @@ if (isset($_POST['upload_laporan'])) {
    $row = mysqli_fetch_array($q);
    unlink("../uploads/laporan/" . $row['file_laporan']);
    move_uploaded_file($file_loc, $folder . $file);
-   $query = mysqli_query($koneksi, "UPDATE laporan_hasil set file_laporan='$file', tanggal_laporan='$tanggal', status='1' where id_laporan='$id_laporan'");
+   $query = mysqli_query($koneksi, "UPDATE laporan_hasil set file_laporan='$file', status='1' where id_laporan='$id_laporan'");
    echo "<script>alert('Berhasil Upload Laporan Hasil!'); window.location = 'laporan_hasil.php'</script>";
 }
 
