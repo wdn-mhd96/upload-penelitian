@@ -35,7 +35,8 @@ if (isset($_POST['revisi'])) {
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Revisi';
-   $tanggal = date('l, d-m-Y');
+
+   $tanggal = $_POST['tanggal'];
    $krs = 'Dalam Proses Revisi';
    $folder = "../uploads/";
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
@@ -86,7 +87,7 @@ if (isset($_POST['revisi_pengmas'])) {
    $nama = $_POST['nama'];
    $nim = $_POST['nim'];
    $status = 'Revisi';
-   $tanggal = date('l, d-m-Y');
+   $tanggal = $_POST['tanggal'];
    $krs = 'Dalam Proses Revisi';
    $folder = "../uploads/pengmas/";
    $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];

@@ -13,7 +13,11 @@ if (isset($_POST['update'])) {
     $tanggal = date('l, d-m-Y');
     // update data ke database
     if ($_POST['status'] == 'Disetujui') {
+        $query = mysqli_query($koneksi,"SELECT * from logbook_header where id_penelitian = '$id'");
+        if(!mysqli_num_rows($query))
+        {
         $q = mysqli_query($koneksi, "INSERT into logbook_header values ('', '$id', '$nim','$tanggal' )");
+        }
     }
     $a = mysqli_query($koneksi, "UPDATE surat_mhs SET judul='$nama', nim='$nim', status='$status', krs ='$krs' where Id='$id'");
     echo "<script>alert('berhasil'); window.location = 'suratku.php';</script>";
